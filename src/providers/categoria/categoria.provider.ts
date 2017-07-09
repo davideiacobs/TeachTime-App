@@ -32,14 +32,16 @@ export class CategoriaProvider {
         return new Promise((resolve) => {
             if (this._categorie === null) {
                 this._categorie = [];
-
-                this._http.get(URL_BASE + URL.CATEGORIES.GETALL).toPromise()
+                
+                this._http.get("http://localhost:8080/teachTime/MainApplication/rest/categories").toPromise()
                     .then((res: Response) => {
+                        console.log(res);
                         const json = res.json() as ResponseServer;
-
+                        console.log(json);
                         if (json.result) {
                             const categorie = json.data;
                             for (let categoria of categorie) {
+                                console.log(categoria);
                                 this._categorie.push(new Categoria(categoria));
                             }
                             resolve(this._categorie);

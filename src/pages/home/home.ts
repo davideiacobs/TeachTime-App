@@ -23,7 +23,6 @@ export class HomePage {
         this.sCategories.getCategorie()
             .then(categories => {
                 this.categories = categories;
-                console.log(this.categories);
             });
     }
 
