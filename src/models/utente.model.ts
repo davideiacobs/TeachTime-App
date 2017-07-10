@@ -5,7 +5,7 @@ export class Utente {
     public nome: string = "";
     public cognome: string = "";
     public voto: number = 0;
-    
+    public titoloDiStudi : string = "";
     
     constructor(obj?: any) {
         this.set(obj);
@@ -16,6 +16,7 @@ export class Utente {
             this.key = (typeof obj.key === "number") ? obj.key : this.key;
             this.nome = obj.nome || this.nome;
             this.cognome = obj.cognome|| this.cognome;
+            this.titoloDiStudi = obj.titoloDiStudi || this.titoloDiStudi;
         }
     }
     

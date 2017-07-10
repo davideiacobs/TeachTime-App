@@ -7,6 +7,7 @@ import {MateriaProvider} from '../../providers/materia/materia.provider';
 import {RipetizioneProvider} from '../../providers/ripetizione/ripetizione.provider';
 import {UtenteProvider} from '../../providers/utente/utente.provider';
 
+
 //Models
 import {Categoria} from '../../models/categoria.model';
 import {Materia} from '../../models/materia.model';
@@ -72,10 +73,12 @@ export class TrovaRipetizioniPage {
             this.lessons = tmp;
 
         })
-       
-        
+
     }
     
+    goRipetizione(ripetizione : Ripetizione){
+        this.navCtrl.push('RipetizionePage', {paramRipetizione:ripetizione});
+    }
     
 
   ionViewDidLoad() {

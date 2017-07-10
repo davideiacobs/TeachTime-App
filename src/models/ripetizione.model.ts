@@ -1,5 +1,6 @@
 import {Utente} from '../models/utente.model';
-
+import {Materia} from '../models/materia.model';
+import {Categoria} from '../models/categoria.model';
 
 
 export class Ripetizione {
@@ -12,6 +13,9 @@ export class Ripetizione {
     public tutor_key: number = 0;
     public tutor: Utente = null;
     public categoria_key : number = 0;
+    public materie : Array<Materia> =  [];
+    public categoria : Categoria = null;
+    
     
     constructor(obj?: any) {
         this.set(obj);
@@ -27,7 +31,8 @@ export class Ripetizione {
             this.città = obj.città || this.città;
             this.tutor_key = (typeof obj.tutor_key === "number") ? obj.tutor_key : this.tutor_key;
             this.tutor =  obj.tutor || this.tutor;
-            
+            this.materie = obj.materie || this.materie;
+            this.categoria = obj.categoria || this.categoria;
         }
     }
     

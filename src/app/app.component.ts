@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
+
+
     @Component({
   templateUrl: 'app.html'
 })
