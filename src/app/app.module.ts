@@ -9,11 +9,12 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
+import { MateriaProvider } from '../providers/materia/materia.provider';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { CategoriaProvider } from '../providers/categoria/categoria.provider';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CategoriaProvider
+    CategoriaProvider,
+    MateriaProvider
   ]
 })
 export class AppModule {}

@@ -19,7 +19,7 @@ export class CategoriaProvider {
     private _categorie: Array<Categoria> = null;
 
     constructor(
-        private _http: Http,
+        private _http: Http
     ) {
 
     }

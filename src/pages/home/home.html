@@ -1,14 +1,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+        TrovaRipetizioni
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+   <ion-list>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Città"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Seleziona Categoria</ion-label>
+            <ion-select #c (ionChange)="getMaterie(c.value)">
+              <ion-option *ngFor="let categoria of categories" value={{categoria.key}}>{{categoria.nome}}</ion-option>
+            </ion-select>
+        </ion-item>
+       <ion-item>
+            <ion-label>Seleziona Materia</ion-label>
+            <ion-select >
+              <ion-option *ngFor="let materia of subjects" value={{materia.key}}>{{materia.nome}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
 </ion-content>
