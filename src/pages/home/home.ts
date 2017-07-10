@@ -24,6 +24,8 @@ export class HomePage {
             .then(categories => {
                 this.categories = categories;
             });
+       
     }
+     
 
 }
