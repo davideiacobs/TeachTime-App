@@ -55,23 +55,26 @@ export class TrovaRipetizioniPage {
     
     getRipetizioni(materia:number,categoria:number,città:string){
         this.lessons = null;
+        
         this.sLessons.getRipetizioni(categoria,materia,città).then(lessons => {
+            var tmp : Array<Ripetizione> = [];
             for(let lesson of lessons){
                 
                 var tutor = lesson.tutor;
                 this.sUsers.getVoto(tutor).then(voto => {
                     lesson.tutor.voto = (typeof voto === "number") ? voto: tutor.voto;
-                })
-                
+                    
+                    
+                });
+                tmp.push(lesson);
             }
             
-            this.lessons = lessons;
-            console.log(this.lessons[0].tutor.voto);
+            this.lessons = tmp;
+
         })
        
         
     }
-    
     
     
 

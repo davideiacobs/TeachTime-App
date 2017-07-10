@@ -27,7 +27,6 @@ export class RipetizioneProvider {
                 this._http.get("http://localhost:8080/teachTime/MainApplication/rest/privateLessons?city="+città+"&category="+categoria+"&subject="+materia).toPromise()
                     .then((res: Response) => {
                         const json = res.json();
-                        console.log(json);
                         for (let ripetizione of json) {
                             this._ripetizioni.push(new Ripetizione(ripetizione));
                         }  
