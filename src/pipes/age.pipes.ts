@@ -1,0 +1,19 @@
+import {Pipe} from "@angular/core";
+import {PipeTransform} from "@angular/core";
+ 
+import * as moment from 'moment';
+
+
+@Pipe({
+  name: 'age'
+})
+export class AgePipe implements PipeTransform {
+
+  transform(value: Date|moment.Moment, args: string[]): any {
+
+  	if (!value) return value;
+
+		return moment().diff(value, 'years')+" Anni";
+  	
+  }
+}

@@ -1,13 +1,43 @@
-
 <ion-header>
-
   <ion-navbar>
-    <ion-title>TrovaRipetizioni</ion-title>
+    <ion-title>
+        TrovaRipetizioni
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-    
+   <ion-list>
+
+        <ion-item>
+          <ion-input #city type="text" placeholder="Città"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Categoria</ion-label>
+            <ion-select #c (ionChange)="getMaterie(c.value)">
+              <ion-option *ngFor="let categoria of categories" value={{categoria.key}}>{{categoria.nome}}</ion-option>
+            </ion-select>
+        </ion-item>
+       <ion-item>
+            <ion-label>Materia</ion-label>
+            <ion-select #m>
+              <ion-option *ngFor="let materia of subjects" value={{materia.key}}>{{materia.nome}}</ion-option>
+            </ion-select>
+        </ion-item>
+       <button ion-button block (click)="getRipetizioni(m.value,c.value,city.value)">Cerca</button>
+
+
+    </ion-list>
+    <ion-list>
+  <ion-item *ngFor="let ripetizione of lessons">
+    <ion-avatar item-start>
+      <img src="assets/images/1.jpg">
+    </ion-avatar>
+    <h2>{{ripetizione.tutor.nome | capitalize}} {{ripetizione.tutor.cognome | surname}}</h2>
+    <p>{{ripetizione.tutor.dataDiNascita | age }} </p>
+    <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+    <p item-end>{{ripetizione.costo}}<ion-icon name="logo-euro"></ion-icon></p>
+  </ion-item>
+</ion-list>
 </ion-content>

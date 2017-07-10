@@ -7,14 +7,30 @@ import { HttpModule } from '@angular/http';
 
 
 import { MyApp } from './app.component';
+
+//pages
 import { HomePage } from '../pages/home/home';
+import { TrovaRipetizioniPage } from '../pages/trova-ripetizioni/trova-ripetizioni'
+
+//providers
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
 import { MateriaProvider } from '../providers/materia/materia.provider';
+import { RipetizioneProvider } from '../providers/ripetizione/ripetizione.provider';
+import { UtenteProvider } from '../providers/utente/utente.provider';
+
+//custom pipes
+import { CapitalizePipe } from '../pipes/capitalize.pipes'; // import our pipe here
+import { SurnamePipe } from '../pipes/surname.pipes';
+import { AgePipe } from '../pipes/age.pipes';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    TrovaRipetizioniPage,
+    CapitalizePipe,
+    SurnamePipe,
+    AgePipe
   ],
   imports: [
     BrowserModule,
@@ -24,14 +40,17 @@ import { MateriaProvider } from '../providers/materia/materia.provider';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TrovaRipetizioniPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaProvider,
-    MateriaProvider
+    MateriaProvider,
+    RipetizioneProvider,
+    UtenteProvider
   ]
 })
 export class AppModule {}
