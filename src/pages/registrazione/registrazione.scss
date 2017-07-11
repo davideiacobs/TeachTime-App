@@ -1,0 +1,48 @@
+$primary : #f77e2c;
+$icon :  #5abee0;
+$text : #ffffff;
+page-home {
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.toolbar-title{
+	color: $text;
+}
+
+.toolbar-background{
+	background-color: $primary;
+}
+.item{
+	margin-bottom: 5px !important;
+	}
+.item.item-input{
+	width: 75%;
+	margin: 0 auto;
+
+}
+.icon{
+	color: $icon;
+}
+.item.item-datetime{
+	width: 75%;
+	margin: 0 12.5%;
+}
+#right{
+	color: $text;
+	padding-bottom: 2.5px;
+}
+#Registrati{
+	margin-top: 30px;
+    margin-left: 16%;
+    width: 70% ;
+}
+
+}
