@@ -10,7 +10,7 @@ import { MyApp } from './app.component';
 
 //pages
 import { HomePage } from '../pages/home/home';
-import { TrovaRipetizioniPage } from '../pages/trova-ripetizioni/trova-ripetizioni'
+import { TrovaRipetizioniPage } from '../pages/trova-ripetizioni/trova-ripetizioni';
 
 //providers
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
@@ -37,12 +37,17 @@ import { AgePipe } from '../pipes/age.pipes';
     HttpModule,
     IonicModule.forRoot(MyApp)
   ],
+  exports: [
+      CapitalizePipe,
+      SurnamePipe,
+      AgePipe
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    TrovaRipetizioniPage
-  ],
+    TrovaRipetizioniPage,
+      ],
   providers: [
     StatusBar,
     SplashScreen,

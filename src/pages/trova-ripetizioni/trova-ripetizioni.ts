@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 //Providers
 import {CategoriaProvider} from '../../providers/categoria/categoria.provider';
@@ -19,7 +19,7 @@ import {Ripetizione} from '../../models/ripetizione.model';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
- 
+@IonicPage()
 @Component({
   selector: 'page-trova-ripetizioni',
   templateUrl: 'trova-ripetizioni.html',
@@ -71,6 +71,7 @@ export class TrovaRipetizioniPage {
             }
             
             this.lessons = tmp;
+            console.log(this.lessons);
 
         })
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-
 //models
 import {Ripetizione} from '../../models/ripetizione.model';
 /**
@@ -25,10 +24,12 @@ export class RipetizionePage {
   constructor(public navCtrl: NavController, public navParams: NavParams){
  
     this.ripetizione = navParams.get("paramRipetizione");
-
   }
+  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RipetizionePage');
+      
   }
+  
+ 
 
 }
