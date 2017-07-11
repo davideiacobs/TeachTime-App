@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 import { MyApp } from './app.component';
@@ -13,7 +14,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TrovaRipetizioniPage } from '../pages/trova-ripetizioni/trova-ripetizioni';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
-
+import { LoginPage } from '../pages/login/login';
 //providers
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
 import { MateriaProvider } from '../providers/materia/materia.provider';
@@ -25,6 +26,7 @@ import { CapitalizePipe } from '../pipes/capitalize.pipes'; // import our pipe h
 import { SurnamePipe } from '../pipes/surname.pipes';
 import { AgePipe } from '../pipes/age.pipes';
 import { AccountProvider } from '../providers/account/account.provider';
+import { UserPersistanceProvider } from '../providers/userpersistance/userpersistance.provider';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { AccountProvider } from '../providers/account/account.provider';
     HomePage,
     TrovaRipetizioniPage,
     RegistrazionePage,
+    LoginPage,
     CapitalizePipe,
     SurnamePipe,
     AgePipe
@@ -39,7 +42,8 @@ import { AccountProvider } from '../providers/account/account.provider';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   exports: [
       CapitalizePipe,
@@ -51,7 +55,8 @@ import { AccountProvider } from '../providers/account/account.provider';
     MyApp,
     HomePage,
     TrovaRipetizioniPage,
-    RegistrazionePage
+    RegistrazionePage,
+    LoginPage
       ],
   providers: [
     StatusBar,
@@ -62,7 +67,8 @@ import { AccountProvider } from '../providers/account/account.provider';
     MateriaProvider,
     RipetizioneProvider,
     UtenteProvider,
-    AccountProvider
+    AccountProvider,
+    UserPersistanceProvider
   ]
 })
 export class AppModule {}

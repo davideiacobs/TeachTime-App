@@ -24,13 +24,13 @@
 
   <ion-item>
   
-  <ion-datetime [(ngModel)]="utente.dataDiNascita" placeholder="Data di Nascita" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="myDate" ></ion-datetime>
+  <ion-datetime [(ngModel)]="utente.dataDiNascita" placeholder="Data di Nascita" [max]="annoMax" displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" ></ion-datetime>
   <ion-icon name="calendar" item-right></ion-icon>
 </ion-item>
 
 
   <ion-item>
-    <ion-input [(ngModel)]="utente.citta" type="text" placeholder="Città"></ion-input>
+    <ion-input [(ngModel)]="citta" type="text" placeholder="Città"></ion-input>
    
 <ion-icon name="locate" (click)="geolocate();" item-right></ion-icon>
 
@@ -38,12 +38,12 @@
   
 
   <ion-item >
-    <ion-input [(ngModel)]="utente.telefono" type="text" placeholder="Numero di Telefono"></ion-input>
+    <ion-input [(ngModel)]="utente.telefono" type="number" placeholder="Numero di Telefono"></ion-input>
   </ion-item>
 
 
   <ion-item >
-    <ion-input [(ngModel)]="utente.mail" type="text" placeholder="Email"></ion-input>
+    <ion-input [(ngModel)]="utente.email" type="email" placeholder="Email"></ion-input>
   </ion-item>
 
   <ion-item >
@@ -55,9 +55,12 @@
 
 
   <button id="Registrati" ion-button icon-end (click)="registrati()">
-  Registrati
-  <ion-icon id="right" name="arrow-dropright"></ion-icon>
-</button>
+    Registrati
+    <ion-icon id="right" name="arrow-dropright"></ion-icon>
+  </button>
+ <button ion-button clear (click)="goLogin()">Sei già registrato? Login</button>
+ 
+
 
 
 </ion-content>

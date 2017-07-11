@@ -4,22 +4,16 @@ import { Camera } from '@ionic-native/camera';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 import {AccountProvider} from '../../providers/account/account.provider';
 
-
-/**
- * Generated class for the RegistrazionePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-registrazione',
   templateUrl: 'registrazione.html',
 })
 export class RegistrazionePage {
-    
+  citta : string;
   base64Image:any;
   utente: UserSignupInterface;
+  annoMax: string = "1999";
   
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -34,10 +28,11 @@ export class RegistrazionePage {
             cognome: "",
             dataDiNascita: null,
             telefono: "",
-            mail: "",
+            email: "",
             città: "",
             pwd : ""
         };
+        this.citta = "";
   }
 
   accessGallery(){
@@ -54,33 +49,34 @@ export class RegistrazionePage {
   
   registrati() {
         console.log(this.utente);
-        
+        this.utente.città = this.citta;
         this._validate().then(() => {
-            console.log("wewe")
-            /*const loading = this.loadingCtrl.create({content: this.sDictionary.get("LOADING_WAITING") });
+            
+            const loading = this.loadingCtrl.create({content: "Loading.." });
             loading.present();
-            */
+            
             this.sAccount.registrati(this.utente)
                 .then(() => {
-                    /*loading.dismiss().then(() => {
+                    loading.dismiss().then(() => {
                         const alert = this.alertCtrl.create({
-                            title: this.sDictionary.get("APP_NAME"),
-                            message: this.sDictionary.get("TEXT_SIGNUP_SUCCESS"),
-                            buttons: [this.sDictionary.get("OK")]
+                            title: "TeachTime",
+                            message: "Registrazione Completata. Benvenuto in TeachTime!",
+                            buttons: ["OK"]
                         });
                         alert.present();
                         alert.onDidDismiss(() => {
-                            this.navCtrl.pop();
+                            //this.navCtrl.pop();
+                            this.navCtrl.push("HomePage");
                         });
-                    });*/
+                    });
                 })
-                .catch(msg => {
-                    /*loading.dismiss();
+                .catch(() => {
+                    loading.dismiss();
                     this.alertCtrl.create({
-                        title: this.sDictionary.get("APP_NAME"),
-                        message: msg,
-                        buttons: [this.sDictionary.get("OK")]
-                    }).present();*/
+                        title: "TeachTime",
+                        message: "Qualcosa è andato storto..",
+                        buttons: ["OK"]
+                    }).present(); 
                 });
         }).catch(() => {});
     }
@@ -96,10 +92,14 @@ export class RegistrazionePage {
                 msg = "Inserisci il tuo cognome";
             } else if (this.utente.dataDiNascita === null) {
                 msg = "Inserisci la tua data di nascita";
-            } else if (this.utente.mail === "") {
+            } else if (this.utente.email === "") {
                 msg = "Inserisci la tua mail";
+            } else if (this.utente.email.indexOf("@")===-1 || this.utente.email.indexOf(".")===-1){
+                msg = "La mail inserita non è valida";
             } else if (this.utente.pwd === "") {
                 msg = "Inserisci la tua password";
+            } else if (this.utente.telefono.length < 10){
+                msg = "Il numero di telefono inserito sembra non essere valido";
             }
             
             if (msg !== "") {
@@ -114,6 +114,11 @@ export class RegistrazionePage {
                 resolve();
             }
         });
+    }
+    
+    
+    goLogin(){
+        this.navCtrl.push("LoginPage");
     }
   
   

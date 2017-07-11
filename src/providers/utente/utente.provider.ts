@@ -26,7 +26,7 @@ export class UtenteProvider {
         return new Promise((resolve) => {
                 utente.voto = 0;
                 
-                this._http.get("http://localhost:8080/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks/avg").toPromise()
+                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks/avg").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);

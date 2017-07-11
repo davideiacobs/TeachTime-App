@@ -29,7 +29,7 @@ export class MateriaProvider {
            
                 this._materie = [];
                 
-                this._http.get("http://localhost:8080/teachTime/MainApplication/rest/categories/"+categoria+"/subjects").toPromise()
+                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/categories/"+categoria+"/subjects").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         console.log(json);

@@ -1,6 +1,6 @@
 export const USE_PROXY = true;
 
-export const URL_BASE = USE_PROXY ? 'rest/' : 'http://localhost:8080/teachTime/MainApplication/rest/';
+export const URL_BASE = USE_PROXY ? 'rest/' : 'http://localhost:8091/teachTime/MainApplication/rest/';
 
 export const URL = {
     /*USERS: {
@@ -14,4 +14,9 @@ export const URL = {
        
         GETALL: "categories/"
     }
+    
+}
+export const STORAGE_KEYS = {
+    USER: "teachtime_user",
+    TOKEN : "teachtime_token"
 }

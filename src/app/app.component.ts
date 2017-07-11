@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
+import { LoginPage } from '../pages/login/login';
 
 
     @Component({

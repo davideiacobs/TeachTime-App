@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
 
 //Providers
 import {CategoriaProvider} from '../../providers/categoria/categoria.provider';
@@ -13,12 +13,8 @@ import {Categoria} from '../../models/categoria.model';
 import {Materia} from '../../models/materia.model';
 import {Ripetizione} from '../../models/ripetizione.model';
 
-/**
- * Generated class for the TrovaRipetizioniPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
+
 @IonicPage()
 @Component({
   selector: 'page-trova-ripetizioni',
@@ -38,6 +34,8 @@ export class TrovaRipetizioniPage {
         public sSubjects: MateriaProvider,
         public sLessons: RipetizioneProvider,
         public sUsers: UtenteProvider,
+        public alertCtrl: AlertController,
+        public loadingCtrl: LoadingController
         ){
             this.sCategories.getCategorie()
                 .then(categories => {
@@ -55,9 +53,14 @@ export class TrovaRipetizioniPage {
     }
     
     getRipetizioni(materia:number,categoria:number,città:string){
+        
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
         this.lessons = null;
         
         this.sLessons.getRipetizioni(categoria,materia,città).then(lessons => {
+            loading.dismiss().then(() => {
+            });
             var tmp : Array<Ripetizione> = [];
             for(let lesson of lessons){
                 
@@ -71,7 +74,6 @@ export class TrovaRipetizioniPage {
             }
             
             this.lessons = tmp;
-            console.log(this.lessons);
 
         })
 

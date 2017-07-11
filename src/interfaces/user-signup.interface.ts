@@ -7,6 +7,6 @@ export interface UserSignupInterface {
     città: string;
     telefono: string;
     pwd: string;
-    mail: string;
+    email: string;
     
 }

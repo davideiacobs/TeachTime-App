@@ -9,6 +9,7 @@ import { TrovaRipetizioniPage } from './trova-ripetizioni';
   ],
   imports: [
     IonicPageModule.forChild(TrovaRipetizioniPage),
+
   ],
   exports: [
     TrovaRipetizioniPage

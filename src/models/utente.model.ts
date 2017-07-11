@@ -6,6 +6,12 @@ export class Utente {
     public cognome: string = "";
     public voto: number = 0;
     public titoloDiStudi : string = "";
+    public città : string = "";
+    public dataDiNascita : Date = null;
+    public telefono : string = "";
+    public pwd : string = "";
+    public email : string = "";
+    public imgProfilo : string = "";
     
     constructor(obj?: any) {
         this.set(obj);
@@ -17,6 +23,12 @@ export class Utente {
             this.nome = obj.nome || this.nome;
             this.cognome = obj.cognome|| this.cognome;
             this.titoloDiStudi = obj.titoloDiStudi || this.titoloDiStudi;
+            this.città = obj.città || this.città;
+            this.dataDiNascita = obj.dataDiNascita || this.dataDiNascita;
+            this.telefono = obj.telefono || this.telefono;
+            this.pwd = obj.pwd || this.pwd;
+            this.email = obj.email || this.email; 
+            this.imgProfilo = obj.imgProfilo || this.imgProfilo;
         }
     }
     

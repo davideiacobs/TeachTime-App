@@ -3,11 +3,9 @@ import { IonicPageModule } from 'ionic-angular';
 import { RipetizionePage } from './ripetizione';
 
 
-
 @NgModule({
   declarations: [
-    RipetizionePage,
-
+    RipetizionePage,  
   ],
   imports: [
     IonicPageModule.forChild(RipetizionePage)

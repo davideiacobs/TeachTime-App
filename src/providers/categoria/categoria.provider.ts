@@ -32,7 +32,7 @@ export class CategoriaProvider {
             if (this._categorie === null) {
                 this._categorie = [];
                 
-                this._http.get("http://localhost:8080/teachTime/MainApplication/rest/categories").toPromise()
+                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/categories").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
  
