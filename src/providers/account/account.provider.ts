@@ -14,6 +14,7 @@ import {MY_URL_BASE} from '../../constants';
 export class AccountProvider {
   private _sessione: Sessione= null;
   private _sUserPersistance: UserPersistanceInterface;
+  
     constructor(
         private _http: Http,
         public events: Events,
@@ -22,6 +23,8 @@ export class AccountProvider {
         console.log('Hello Account Provider');
         this._sUserPersistance = sUserPers;
     }
+    
+    
     initialize(): Promise<any> {
         return new Promise(resolve => {
             this._sUserPersistance.get()
