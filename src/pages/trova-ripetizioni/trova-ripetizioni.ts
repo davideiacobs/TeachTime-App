@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
 //Providers
 import {CategoriaProvider} from '../../providers/categoria/categoria.provider';
@@ -22,7 +22,7 @@ import {Ripetizione} from '../../models/ripetizione.model';
 
 })
 export class TrovaRipetizioniPage {
-
+    selectedItem: any;
     categories: Array<Categoria> = [];
     subjects: Array<Materia> = [];
     lessons: Array<Ripetizione> = [];
@@ -35,12 +35,14 @@ export class TrovaRipetizioniPage {
         public sLessons: RipetizioneProvider,
         public sUsers: UtenteProvider,
         public alertCtrl: AlertController,
-        public loadingCtrl: LoadingController
+        public loadingCtrl: LoadingController,
+        public navParams: NavParams
         ){
             this.sCategories.getCategorie()
                 .then(categories => {
                     this.categories = categories;
                 });
+            this.selectedItem = navParams.get('item');
        
     }
     
@@ -63,18 +65,20 @@ export class TrovaRipetizioniPage {
             loading.dismiss().then(() => {
             });
             var tmp : Array<Ripetizione> = [];
-            for(let lesson of lessons){
-                
-                var tutor = lesson.tutor;
-                this.sUsers.getVoto(tutor).then(voto => {
-                    lesson.tutor.voto = (typeof voto === "number") ? voto: tutor.voto;
-                    
-                    
-                });
-                tmp.push(lesson);
+                if(lessons.length > 0){
+                for(let lesson of lessons){
+
+                    var tutor = lesson.tutor;
+                    this.sUsers.getVoto(tutor).then(voto => {
+                        lesson.tutor.voto = (typeof voto === "number") ? voto: tutor.voto;
+
+
+                    });
+                    tmp.push(lesson);
+                }
+
+                this.lessons = tmp;
             }
-            
-            this.lessons = tmp;
 
         })
 
@@ -87,6 +91,13 @@ export class TrovaRipetizioniPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TrovaRipetizioniPage');
+  }
+  
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(TrovaRipetizioniPage, {
+      item: item
+    });
   }
 
 }

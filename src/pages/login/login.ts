@@ -57,7 +57,7 @@ export class LoginPage {
     }
     
     goProfile(){
-        this.navCtrl.push("MioProfiloPage");
+        this.navCtrl.setRoot("MioProfiloPage");
     }
 
     private _validate() {

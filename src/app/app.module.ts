@@ -21,10 +21,16 @@ import { CapitalizePipeModule } from '../pipes/capitalize.module'; // import our
 import { SurnamePipeModule } from '../pipes/surname.module';
 import {AgePipeModule} from '../pipes/age.module';
 
+//pages
+import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
+import {HomePage} from '../pages/home/home';
+
+
 @NgModule({
   declarations: [
-    MyApp
-  ],
+    MyApp,
+    TrovaRipetizioniPage
+    ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -36,7 +42,8 @@ import {AgePipeModule} from '../pipes/age.module';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    TrovaRipetizioniPage
       ],
   providers: [
     StatusBar,
