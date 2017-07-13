@@ -20,8 +20,8 @@
                             </ion-avatar>
                         </ion-item>
                         <div text-center>
-                            <h4>{{ripetizione.tutor.nome}} {{ripetizione.tutor.cognome}}</h4> 
-                            <p>{{ripetizione.tutor.dataDiNascita}}</p>
+                            <h4>{{ripetizione.tutor.nome | capitalize }} {{ripetizione.tutor.cognome | surname}}</h4> 
+                            <p>{{ripetizione.tutor.dataDiNascita | age}}</p>
                             <p>{{ripetizione.tutor.titoloDiStudi}}</p>
                         </div>
                         <div text-center>

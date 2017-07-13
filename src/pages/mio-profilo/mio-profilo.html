@@ -26,7 +26,7 @@
                     </ion-avatar>
                 </ion-item>
                 <div text-center>
-                   <p>{{ utente.nome | capitalize }} {{ utente.cognome | pointofword }} {{utente.dataDiNascita | age}}</p> 
+                   <p>{{ utente.nome | capitalize }} {{ utente.cognome | surname }} {{utente.dataDiNascita | age}}</p> 
                 </div>
                 <div text-center>
                             <div *ngIf="utente.voto === 5"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>

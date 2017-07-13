@@ -66,7 +66,7 @@ export class RegistrazionePage {
                         alert.present();
                         alert.onDidDismiss(() => {
                             //this.navCtrl.pop();
-                            this.navCtrl.push("HomePage");
+                            this.navCtrl.push("LoginPage");
                         });
                     });
                 })
@@ -118,7 +118,7 @@ export class RegistrazionePage {
     
     
     goLogin(){
-        this.navCtrl.push("LoginPage");
+        this.navCtrl.pop();
     }
   
   

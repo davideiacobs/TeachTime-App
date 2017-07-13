@@ -27,7 +27,7 @@ export class LoginPage {
             città: "",
             pwd : ""
         };
-        
+                
         }
 
   login(){
@@ -37,7 +37,8 @@ export class LoginPage {
             this.sAccount.login(this.utente)
                 .then(() => {
                     loading.dismiss().then(() => {
-                        this.navCtrl.push("HomePage");
+                        this.goProfile();
+                       
                     });
                 })
                 .catch(() => {
@@ -53,6 +54,10 @@ export class LoginPage {
 
     goRegistrazione(){
         this.navCtrl.push("RegistrazionePage");
+    }
+    
+    goProfile(){
+        this.navCtrl.push("MioProfiloPage");
     }
 
     private _validate() {
