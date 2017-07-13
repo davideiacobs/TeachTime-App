@@ -15,12 +15,11 @@ import { UserPersistanceProvider } from '../../providers/userpersistance/userper
 export class MioProfiloPage {
 
     utente : Utente = new Utente();
-    lessons: Array<Prenotazione> = [];
+    feedbacks: Array<Prenotazione> = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public token : UserPersistanceProvider,public sUtente : UtenteProvider) 
   {
   	this.getUser();
-
   }
     getUser(){
   	this.token.get().then(json => {                     
@@ -29,8 +28,22 @@ export class MioProfiloPage {
             this.sUtente.getUtente(id,token).then( user => {                                
   		this.utente.set(user);
                 this.getVoto();
+                this.getFeedback();
             }).catch(() => {});
   	}).catch(() => {});	   
+    }
+
+    getFeedback(){
+    this.sUtente.getFeedback(this.utente).then( feedback2 => {
+      console.log(feedback2);
+      if(feedback2.length > 0)
+      {
+      for(let feedback of feedback2){
+                this.feedbacks.push(new Prenotazione(feedback));
+                console.log(this.feedbacks);
+            }
+      }
+        });
     }
 
     getVoto(){
@@ -38,6 +51,8 @@ export class MioProfiloPage {
             this.utente.voto = (typeof voto === "number") ? voto: this.utente.voto;
         });
     }
+
+    
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MioProfiloPage');

@@ -35,7 +35,7 @@ export class UtenteProvider {
         });
     }
 
-   getFeedback(utente:Utente): Promise<number> {
+   getFeedback(utente:Utente): Promise<any> {
         return new Promise((resolve) => {
                 this._http.get(MY_URL_BASE+"users/"+utente.key+"/feedbacks").toPromise()
                     .then((res: Response) => {

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { TrovaRipetizioniPage } from '../pages//trova-ripetizioni/trova-ripetizioni';
+import { LoginPage } from '../pages//login/login';
 
     @Component({
   templateUrl: 'app.html'
@@ -22,7 +23,8 @@ export class MyApp {
      
      this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Trova Ripetizioni', component: TrovaRipetizioniPage }
+      { title: 'Trova Ripetizioni', component: TrovaRipetizioniPage },
+      { title: 'Login', component: LoginPage }
     ];
   }
   

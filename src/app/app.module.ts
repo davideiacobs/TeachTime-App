@@ -24,12 +24,14 @@ import {AgePipeModule} from '../pipes/age.module';
 //pages
 import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
 import {HomePage} from '../pages/home/home';
+import { LoginPage } from '../pages//login/login';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    TrovaRipetizioniPage
+    TrovaRipetizioniPage,
+    LoginPage
     ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import {HomePage} from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TrovaRipetizioniPage
+    TrovaRipetizioniPage,
+    LoginPage
       ],
   providers: [
     StatusBar,
