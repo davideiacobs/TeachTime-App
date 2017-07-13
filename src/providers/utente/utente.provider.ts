@@ -3,14 +3,11 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import {MY_URL_BASE} from '../../constants';
+//models
 import {Utente} from '../../models/utente.model';
 
-/*
-  Generated class for the UtenteProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class UtenteProvider {
 
@@ -26,7 +23,7 @@ export class UtenteProvider {
         return new Promise((resolve) => {
                 console.log(utente);
                 utente.voto = 0;
-                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks/avg").toPromise()
+                this._http.get(MY_URL_BASE+"users/"+utente.key+"/feedbacks/avg").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);
@@ -40,7 +37,7 @@ export class UtenteProvider {
 
    getFeedback(utente:Utente): Promise<number> {
         return new Promise((resolve) => {
-                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks").toPromise()
+                this._http.get(MY_URL_BASE+"users/"+utente.key+"/feedbacks").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);
@@ -48,6 +45,18 @@ export class UtenteProvider {
                         
                     })
                     .catch(() => resolve());
+        });
+    }
+    
+    getUtente(id : number, token:string): Promise<Utente> {
+        return new Promise((resolve) => {
+                this._http.get(MY_URL_BASE+"auth/"+token+"/users/"+id).toPromise()
+                    .then((res: Response) => {
+                        const json = res.json();
+                        resolve(json);   
+                    })
+                    .catch(() => resolve());
+            
         });
     }
 

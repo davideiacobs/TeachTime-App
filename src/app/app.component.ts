@@ -14,7 +14,7 @@ import { MioProfiloPage } from '../pages/mio-profilo/mio-profilo';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = MioProfiloPage;
+  rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

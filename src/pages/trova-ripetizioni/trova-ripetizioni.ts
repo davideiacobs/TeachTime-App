@@ -52,6 +52,7 @@ export class TrovaRipetizioniPage {
         
     }
     
+    
     getRipetizioni(materia:number,categoria:number,città:string){
         
         const loading = this.loadingCtrl.create({content: "Loading.." });

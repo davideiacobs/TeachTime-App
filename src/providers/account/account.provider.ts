@@ -7,6 +7,9 @@ import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 import {UserPersistanceInterface} from '../../interfaces/userpersistance.interface';
 import {UserPersistanceProvider} from '../../providers/userpersistance/userpersistance.provider';
 import {Sessione} from '../../models/sessione.model';
+import {MY_URL_BASE} from '../../constants';
+
+
 @Injectable()
 export class AccountProvider {
   private _sessione: Sessione= null;
@@ -32,7 +35,7 @@ export class AccountProvider {
     
   registrati(user: UserSignupInterface): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._http.post("http://localhost:8091/teachTime/MainApplication/rest/users", user).toPromise()
+            this._http.post(MY_URL_BASE+"users", user).toPromise()
                 .then(() => {
                     resolve();
                 })
@@ -43,12 +46,12 @@ export class AccountProvider {
 
     login(utente : UserSignupInterface): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._http.post("http://localhost:8091/teachTime/MainApplication/rest/auth/login", utente).toPromise()
+            this._http.post(MY_URL_BASE+"auth/login", utente).toPromise()
                 .then((res: Response) => {
                     const json = res.json();
                     this._sUserPersistance.save(json);
                     //this.events.publish('user:login');
-                    
+                    resolve();
                 })
                 .catch((err: Response) => reject(`Errore status: ${err.status}`));
         });

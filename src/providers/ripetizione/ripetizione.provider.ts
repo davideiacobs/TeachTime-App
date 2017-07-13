@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import {MY_URL_BASE} from '../../constants';
 //Models 
 import {Ripetizione} from '../../models/ripetizione.model';
 
@@ -24,7 +25,7 @@ export class RipetizioneProvider {
            
                 this._ripetizioni = [];
                 
-                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/privateLessons?city="+città+"&category="+categoria+"&subject="+materia).toPromise()
+                this._http.get(MY_URL_BASE+"privateLessons?city="+città+"&category="+categoria+"&subject="+materia).toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         for (let ripetizione of json) {

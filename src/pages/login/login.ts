@@ -4,12 +4,6 @@ import {AccountProvider} from '../../providers/account/account.provider';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 
 
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -38,21 +32,21 @@ export class LoginPage {
 
   login(){
         this._validate().then(() => {
-            /*const loading = this.loadingCtrl.create({ content: this.sDictionary.get("LOADING_WAITING") });
-            loading.present(); */
+            const loading = this.loadingCtrl.create({content: "Loading.." });
+            loading.present();
             this.sAccount.login(this.utente)
-                .then(()=> { 
-                })
-                .catch((msg) => {
-                    /* console.log("errore login: non mi sono riuscito a loggare");
-
+                .then(() => {
                     loading.dismiss().then(() => {
-                        this.alertCtrl.create({
-                            title: this.sDictionary.get("APP_NAME"),
-                            message: msg,
-                            buttons: [this.sDictionary.get("OK")]
-                        }).present();
-                    });*/
+                        this.navCtrl.push("HomePage");
+                    });
+                })
+                .catch(() => {
+                    loading.dismiss();
+                    this.alertCtrl.create({
+                        title: "TeachTime",
+                        message: "Login Errato",
+                        buttons: ["OK"]
+                    }).present(); 
                 });
         }).catch(() => {});
     }
@@ -66,6 +60,8 @@ export class LoginPage {
             let msg = "";
             if (this.utente.email.trim() === "") {
                 msg = "Inserisci un email";
+            }else if (this.utente.email.indexOf("@")===-1 || this.utente.email.indexOf(".")===-1){
+                msg = "La mail inserita non è valida";
             } else if (this.utente.pwd.trim() === "") {
                 msg = "Inserisci una password";
             }

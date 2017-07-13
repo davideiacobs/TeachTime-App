@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/login/login.module.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/app/app.component.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/providers/utente/utente.provider.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/home/home.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/providers/account/account.provider.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/registrazione/registrazione.html</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/home/home.html</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/login/login.html</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/login/login.ts</file>
-            <file>file:/Users/manuel/Desktop/GIT/TeachTime-App/src/pages/home/home.scss</file>
+            <file>file:/home/iacobs/GitHub/TeachTime-App/TeachTime-App/src/pages/registrazione/registrazione.ts</file>
+            <file>file:/home/iacobs/GitHub/TeachTime-App/TeachTime-App/src/pages/mio-profilo/mio-profilo.ts</file>
+            <file>file:/home/iacobs/GitHub/TeachTime-App/TeachTime-App/src/providers/mioprofilo/mioprofilo.provider.ts</file>
+            <file>file:/home/iacobs/GitHub/TeachTime-App/TeachTime-App/src/providers/utente/utente.provider.ts</file>
         </group>
     </open-files>
 </project-private>

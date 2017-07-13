@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import {Categoria} from '../../models/categoria.model';
 
 //Constants
-import {URL_BASE, URL} from '../../constants';
+import {URL_BASE, URL, MY_URL_BASE} from '../../constants';
 
 //Types
 import {ResponseServer} from '../../types';
@@ -32,7 +32,7 @@ export class CategoriaProvider {
             if (this._categorie === null) {
                 this._categorie = [];
                 
-                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/categories").toPromise()
+                this._http.get(MY_URL_BASE+"categories").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
  

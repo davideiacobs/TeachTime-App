@@ -28,7 +28,6 @@ import { SurnamePipe } from '../pipes/surname.pipes';
 import { AgePipe } from '../pipes/age.pipes';
 import { AccountProvider } from '../providers/account/account.provider';
 import { UserPersistanceProvider } from '../providers/userpersistance/userpersistance.provider';
-import { MioprofiloProvider } from '../providers/mioprofilo/mioprofilo.provider';
 import { PointofwordPipe } from '../pipes//pointofword.pipes';
 import { EtàPipe } from '../pipes/età.pipes';
 
@@ -76,8 +75,7 @@ import { EtàPipe } from '../pipes/età.pipes';
     RipetizioneProvider,
     UtenteProvider,
     AccountProvider,
-    UserPersistanceProvider,
-    MioprofiloProvider
+    UserPersistanceProvider
   ]
 })
 export class AppModule {}

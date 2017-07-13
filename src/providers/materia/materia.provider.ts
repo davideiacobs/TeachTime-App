@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import {MY_URL_BASE} from '../../constants';
 //Models 
 import {Materia} from '../../models/materia.model';
 
@@ -29,7 +30,7 @@ export class MateriaProvider {
            
                 this._materie = [];
                 
-                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/categories/"+categoria+"/subjects").toPromise()
+                this._http.get(MY_URL_BASE+"categories/"+categoria+"/subjects").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         console.log(json);
