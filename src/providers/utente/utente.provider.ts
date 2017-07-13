@@ -24,16 +24,30 @@ export class UtenteProvider {
      */
     getVoto(utente:Utente): Promise<number> {
         return new Promise((resolve) => {
+                console.log(utente);
                 utente.voto = 0;
-                
                 this._http.get("http://localhost:8091/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks/avg").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);
+                        console.log(json);
                         
                     })
                     .catch(() => resolve(utente.voto));
             
+        });
+    }
+
+   getFeedback(utente:Utente): Promise<number> {
+        return new Promise((resolve) => {
+                this._http.get("http://localhost:8091/teachTime/MainApplication/rest/users/"+utente.key+"/feedbacks").toPromise()
+                    .then((res: Response) => {
+                        const json = res.json();
+                        resolve(json);
+                        console.log(json);
+                        
+                    })
+                    .catch(() => resolve());
         });
     }
 

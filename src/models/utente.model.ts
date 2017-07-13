@@ -6,7 +6,7 @@ export class Utente {
     public cognome: string = "";
     public voto: number = 0;
     public titoloDiStudi : string = "";
-    public città : string = "";
+    public citta : string = "";
     public dataDiNascita : Date = null;
     public telefono : string = "";
     public pwd : string = "";
@@ -23,7 +23,7 @@ export class Utente {
             this.nome = obj.nome || this.nome;
             this.cognome = obj.cognome|| this.cognome;
             this.titoloDiStudi = obj.titoloDiStudi || this.titoloDiStudi;
-            this.città = obj.città || this.città;
+            this.citta = obj.città || this.citta;
             this.dataDiNascita = obj.dataDiNascita || this.dataDiNascita;
             this.telefono = obj.telefono || this.telefono;
             this.pwd = obj.pwd || this.pwd;

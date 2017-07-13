@@ -15,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { TrovaRipetizioniPage } from '../pages/trova-ripetizioni/trova-ripetizioni';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
 import { LoginPage } from '../pages/login/login';
+import { MioProfiloPage } from '../pages/mio-profilo/mio-profilo';
 //providers
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
 import { MateriaProvider } from '../providers/materia/materia.provider';
@@ -27,6 +28,9 @@ import { SurnamePipe } from '../pipes/surname.pipes';
 import { AgePipe } from '../pipes/age.pipes';
 import { AccountProvider } from '../providers/account/account.provider';
 import { UserPersistanceProvider } from '../providers/userpersistance/userpersistance.provider';
+import { MioprofiloProvider } from '../providers/mioprofilo/mioprofilo.provider';
+import { PointofwordPipe } from '../pipes//pointofword.pipes';
+import { EtàPipe } from '../pipes/età.pipes';
 
 @NgModule({
   declarations: [
@@ -34,10 +38,13 @@ import { UserPersistanceProvider } from '../providers/userpersistance/userpersis
     HomePage,
     TrovaRipetizioniPage,
     RegistrazionePage,
+    MioProfiloPage,
     LoginPage,
     CapitalizePipe,
     SurnamePipe,
-    AgePipe
+    AgePipe,
+    PointofwordPipe,
+    EtàPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,8 @@ import { UserPersistanceProvider } from '../providers/userpersistance/userpersis
     HomePage,
     TrovaRipetizioniPage,
     RegistrazionePage,
-    LoginPage
+    LoginPage,
+    MioProfiloPage
       ],
   providers: [
     StatusBar,
@@ -68,7 +76,8 @@ import { UserPersistanceProvider } from '../providers/userpersistance/userpersis
     RipetizioneProvider,
     UtenteProvider,
     AccountProvider,
-    UserPersistanceProvider
+    UserPersistanceProvider,
+    MioprofiloProvider
   ]
 })
 export class AppModule {}

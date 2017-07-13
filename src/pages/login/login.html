@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>login</ion-title>
   </ion-navbar>
 
@@ -15,25 +15,24 @@
 
 <ion-content padding>
 
-<ion-list>
+  <ion-item class="center">
+  	<ion-icon name="mail" item-left padding-right></ion-icon>
+    <ion-input type="text" placeholder="Email" [(ngModel)]="utente.email"></ion-input>
+  </ion-item>
 
   <ion-item>
-  	<ion-icon name="mail"></ion-icon>
-    <ion-input type="text" placeholder="Mail" [(ngModel)]="utente.email"></ion-input>
-  </ion-item>
-    <ion-icon name="lock" class="ion-lock"></ion-icon>
-  <ion-item>
-    
     <ion-input type="password" placeholder="Password" [(ngModel)]="utente.pwd"></ion-input>
+    <ion-icon name="lock" class="ion-lock" item-left padding-right></ion-icon>
   </ion-item>
 
-</ion-list>
-
-<div padding>
-  <button block (click)="login()">Sign In</button>
+<div padding  text-center>
+  <button ion-button block color="primary" (click)="login();">Sign In</button>
 </div>
 
+<ion-item>
+    <button ion-button clear item-left>Password Dimenticata?</button>
+    <button ion-button clear item-right (click) = "goRegistrazione();">Registrati</button>
+  </ion-item >
+
 </ion-content>
-
-
 

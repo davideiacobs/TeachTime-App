@@ -7,13 +7,14 @@ import { HomePage } from '../pages/home/home';
 import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
 import { LoginPage } from '../pages/login/login';
+import { MioProfiloPage } from '../pages/mio-profilo/mio-profilo';
 
 
     @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegistrazionePage;
+  rootPage:any = MioProfiloPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -6,10 +6,10 @@ import 'rxjs/add/operator/toPromise';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 import {UserPersistanceInterface} from '../../interfaces/userpersistance.interface';
 import {UserPersistanceProvider} from '../../providers/userpersistance/userpersistance.provider';
-import {Utente} from '../../models/utente.model';
+import {Sessione} from '../../models/sessione.model';
 @Injectable()
 export class AccountProvider {
-  private _user: Utente = null;
+  private _sessione: Sessione= null;
   private _sUserPersistance: UserPersistanceInterface;
     constructor(
         private _http: Http,
@@ -22,8 +22,8 @@ export class AccountProvider {
     initialize(): Promise<any> {
         return new Promise(resolve => {
             this._sUserPersistance.get()
-                .then(user => {
-                    this._user = user;
+                .then(sessione => {
+                    this._sessione = sessione;
                     resolve();
                 })
                 .catch(() => resolve());

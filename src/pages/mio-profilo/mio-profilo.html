@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <ion-title>
+      Il Mio Profilo
+    </ion-title>
+  </ion-navbar> 
+</ion-header>
+
+<ion-content>
+    
+    <ion-row align-self-center justify-content-center>
+        <ion-col col-auto>
+            <div class="mio-profilo">
+                <!-- simbolo 
+                <p>
+                    <button ion-button color="dark" clear icon-only right edge>
+                      <ion-icon name='create' is-active="false"></ion-icon>
+                    </button>
+                </p> -->
+                <ion-fab right edge>
+                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
+                </ion-fab>
+                <ion-item no-lines>
+                    <ion-avatar>
+                        <img src="assets/images/1.jpg" style="width: 150px;height: 150px;">
+                    </ion-avatar>
+                </ion-item>
+                <div text-center>
+                   <p>{{ utente.nome | capitalize }} {{ utente.cognome | pointofword }} {{utente.dataDiNascita | age}}</p> 
+                </div>
+                <div text-center>
+                            <div *ngIf="utente.voto === 5"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                            <div *ngIf="utente.voto === 4"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="utente.voto === 3"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="utente.voto === 2"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="utente.voto === 1"><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="utente.voto === 0"><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                        </div>
+            </div>
+        </ion-col>
+    </ion-row>
+    
+    <ion-toolbar no-border-top ion-slide>
+        <ion-segment [(ngModel)]="pet" ion-slide>
+          <ion-segment-button value="puppies">
+            PROFILO
+          </ion-segment-button>
+          <ion-segment-button value="kittens">
+            RIPETIZIONI
+          </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    
+    <div [ngSwitch]="pet">
+        <div *ngSwitchCase="'puppies'">
+            <div class="profilo-info">
+                <p>Città: {{utente.citta}}</p> 
+                <p>
+                    <button ion-button color="dark" clear icon-only small>
+                        <ion-icon name='create' is-active="false"></ion-icon>
+                    </button>
+                </p>
+            </div>
+            <div class="profilo-info">
+                <p>Telefono:</p> 
+                <p>{{utente.telefono}}</p>
+                <p>
+                    <button ion-button color="dark" clear icon-only small>
+                        <ion-icon name='create' is-active="false"></ion-icon>
+                    </button>
+                </p>
+            </div>
+            <div class="profilo-info">
+                <p>Titolo di studi: {{utente.titoloDiStudi}}</p> 
+                <p>
+                    <button ion-button color="dark" clear icon-only small>
+                        <ion-icon name='create' is-active="false"></ion-icon>
+                    </button>
+                </p>
+            </div>
+            
+            <ion-card>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="assets/images/1.jpg">
+                    </ion-avatar>
+                    <h2>Marty McFly</h2>
+                    <p>November 5, 1955</p>
+                </ion-item>
+                <ion-card-content>
+                  <p>Fa schif agl cazz come spiega</p>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+        <div *ngSwitchCase="'kittens'">
+            <ion-card>
+                <ion-fab right edge>
+                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
+                </ion-fab>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col>
+                            <p>CATEGORIA 1</p>
+                        </ion-col>
+                        <ion-col>
+                            <p>18 €</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+            <p text-center>
+                <button ion-button icon-start>
+                    <ion-icon name='add'></ion-icon>
+                     Aggiungi
+                </button>
+            </p>
+        </div>
+
+    </div>
+    
+</ion-content>

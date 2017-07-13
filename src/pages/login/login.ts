@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,AlertController, LoadingController 
 import {AccountProvider} from '../../providers/account/account.provider';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -54,6 +55,10 @@ export class LoginPage {
                     });*/
                 });
         }).catch(() => {});
+    }
+
+    goRegistrazione(){
+        this.navCtrl.push("RegistrazionePage");
     }
 
     private _validate() {

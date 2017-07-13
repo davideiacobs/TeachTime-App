@@ -17,7 +17,7 @@ export class UserPersistanceProvider implements UserPersistanceInterface {
     
     save(user: string): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._storage.set(STORAGE_KEYS.TOKEN, user)
+            this._storage.set(STORAGE_KEYS.USER, user)
                 .then(() => {
                     resolve();
                 })
@@ -29,10 +29,9 @@ export class UserPersistanceProvider implements UserPersistanceInterface {
     
     get(): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._storage.get(STORAGE_KEYS.TOKEN)
+            this._storage.get(STORAGE_KEYS.USER)
                 .then((user) => {
                     if (user !== null) {
-                        console.log(user);
                         resolve(user);
                     } else {
                         reject();
@@ -43,7 +42,7 @@ export class UserPersistanceProvider implements UserPersistanceInterface {
     
     remove(): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._storage.remove(STORAGE_KEYS.TOKEN)
+            this._storage.remove(STORAGE_KEYS.USER)
                 .then(() => {
                     resolve();
                 })

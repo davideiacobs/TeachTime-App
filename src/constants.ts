@@ -17,6 +17,6 @@ export const URL = {
     
 }
 export const STORAGE_KEYS = {
-    USER: "teachtime_user",
-    TOKEN : "teachtime_token"
+    USER: "teachtime_user"
+ 
 }
