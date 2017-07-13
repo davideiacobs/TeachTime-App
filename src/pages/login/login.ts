@@ -37,7 +37,7 @@ export class LoginPage {
             this.sAccount.login(this.utente)
                 .then(() => {
                     loading.dismiss().then(() => {
-                        this.goProfile();
+                       // this.goProfile();
                        
                     });
                 })

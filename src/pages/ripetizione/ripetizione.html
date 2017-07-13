@@ -44,7 +44,7 @@
         <p> Città : {{ripetizione.citta}} </p>
         <p> Luogo d'Incontro : {{ripetizione.luogoIncontro}} </p>
         <p> Descrizione : {{ripetizione.descr}} </p>
-        <button ion-button full>Prenotati</button>
+        <button ion-button full *ngIf="isLogged===true">Prenotati</button>
         
         
     </ion-item>

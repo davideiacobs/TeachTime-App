@@ -22,6 +22,8 @@ export class AccountProvider {
     ) {
         console.log('Hello Account Provider');
         this._sUserPersistance = sUserPers;
+        this.initialize();
+        this.isLogged();
     }
     
     
@@ -58,6 +60,11 @@ export class AccountProvider {
                 })
                 .catch((err: Response) => reject(`Errore status: ${err.status}`));
         });
+    }
+    
+    isLogged(): boolean {
+        this.initialize();
+        return this._sessione !== null;
     }
 
 
