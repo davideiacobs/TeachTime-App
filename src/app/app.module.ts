@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
+import { DatePipe } from '@angular/common';
 
 //providers
 import { CategoriaProvider } from '../providers/categoria/categoria.provider';
@@ -22,15 +23,14 @@ import { SurnamePipeModule } from '../pipes/surname.module';
 import {AgePipeModule} from '../pipes/age.module';
 
 //pages
-import {TrovaRipetizioniPage} from '../pages/trova-ripetizioni/trova-ripetizioni';
 import {HomePage} from '../pages/home/home';
 import { LoginPage } from '../pages//login/login';
+import { PrenotazioneProvider } from '../providers/prenotazione/prenotazione.provider';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    TrovaRipetizioniPage,
     LoginPage
     ],
   imports: [
@@ -45,11 +45,11 @@ import { LoginPage } from '../pages//login/login';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TrovaRipetizioniPage,
     LoginPage
       ],
   providers: [
     StatusBar,
+    DatePipe,
     Camera,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -58,7 +58,8 @@ import { LoginPage } from '../pages//login/login';
     RipetizioneProvider,
     UtenteProvider,
     AccountProvider,
-    UserPersistanceProvider
+    UserPersistanceProvider,
+    PrenotazioneProvider
   ]
 })
 export class AppModule {}

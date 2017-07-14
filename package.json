@@ -42,6 +42,7 @@
         "ionicons": "3.0.0",
         "json-schema-traverse": "^0.3.1",
         "moment": "^2.18.1",
+        "org.apache.cordova.plugin.cache": "https://github.com/tiltshiftfocus/cordova-plugin-cache.git",
         "rxjs": "5.4.0",
         "serve": "^6.0.2",
         "sw-toolbox": "3.6.0",
