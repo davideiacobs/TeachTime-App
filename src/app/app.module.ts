@@ -16,6 +16,7 @@ import { RipetizioneProvider } from '../providers/ripetizione/ripetizione.provid
 import { UtenteProvider } from '../providers/utente/utente.provider';
 import { AccountProvider } from '../providers/account/account.provider';
 import { UserPersistanceProvider } from '../providers/userpersistance/userpersistance.provider';
+import { PrenotazioneProvider } from '../providers/prenotazione/prenotazione.provider';
 
 //custom pipes
 import { CapitalizePipeModule } from '../pipes/capitalize.module'; // import our pipe here
@@ -24,14 +25,17 @@ import {AgePipeModule} from '../pipes/age.module';
 
 //pages
 import {HomePage} from '../pages/home/home';
-import { LoginPage } from '../pages//login/login';
-import { PrenotazioneProvider } from '../providers/prenotazione/prenotazione.provider';
+import { LoginPage } from '../pages/login/login';
+import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
+import {RegistrazionePage} from '../pages/registrazione/registrazione';
 
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage
+    LoginPage,
+    MioProfiloPage,
+    RegistrazionePage
     ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { PrenotazioneProvider } from '../providers/prenotazione/prenotazione.pro
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage
+    LoginPage,
+    MioProfiloPage,
+    RegistrazionePage
       ],
   providers: [
     StatusBar,

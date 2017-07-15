@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController, LoadingController } from 'ionic-angular';
 import {AccountProvider} from '../../providers/account/account.provider';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
-
+import { Events } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,8 +15,9 @@ export class LoginPage {
   	constructor(public navCtrl: NavController, 
   		public navParams: NavParams,
   		public alertCtrl: AlertController,
-        public sAccount: AccountProvider,
-        public loadingCtrl: LoadingController){
+                public sAccount: AccountProvider,
+                public loadingCtrl: LoadingController,
+                public events: Events){
         
         this.utente = {
             nome: "",
@@ -38,7 +39,8 @@ export class LoginPage {
                 .then(() => {
                     loading.dismiss().then(() => {
                        // this.goProfile();
-                       
+                       this.events.publish('user:login');
+                       //this.navCtrl.push("MioProfiloPage");
                     });
                 })
                 .catch(() => {
@@ -53,7 +55,7 @@ export class LoginPage {
     }
 
     goRegistrazione(){
-        this.navCtrl.push("RegistrazionePage");
+       this.events.publish('toRegistrazione');
     }
     
     goProfile(){
@@ -84,5 +86,12 @@ export class LoginPage {
             }
         });
     }
-
+    
+    
+    itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(LoginPage, {
+      item: item
+    });
+  }
 }

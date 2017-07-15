@@ -5,7 +5,7 @@
   "proxies": [
         {
             "path": "/rest",
-            "proxyUrl": "http://localhost:8091/teachTime/MainApplication/rest"
+            "proxyUrl": "http://localhost:8080/teachTime/MainApplication/rest"
         }
     ]
 }

@@ -66,6 +66,20 @@ export class AccountProvider {
         this.initialize();
         return this._sessione !== null;
     }
+    
+     logout(): Promise<any> { 
+         return new Promise((resolve, reject) => {
+            this.initialize().then(()=>{ 
+                
+                this._http.post(MY_URL_BASE +"auth/logout", this._sessione.token).toPromise()
+                    .then(() => {
+                        this._sUserPersistance.remove();
+                        //this.events.publish('user:logout');
+                         resolve();
+                    }).catch((err: Response) => reject(`Errore status: ${err.status}`));
+            });
+        });
+    }
 
 
 }

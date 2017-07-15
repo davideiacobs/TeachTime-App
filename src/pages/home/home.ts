@@ -16,6 +16,13 @@ export class HomePage {
   goTrovaRipetizioni(){
       this.navCtrl.setRoot("TrovaRipetizioniPage");
   }
+  
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(HomePage, {
+      item: item
+    });
+  }
 
  
 

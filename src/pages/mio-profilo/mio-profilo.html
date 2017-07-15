@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar color="primary" text-center>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Il Mio Profilo
     </ion-title>
@@ -54,7 +57,7 @@
     <div [ngSwitch]="pet">
         <div *ngSwitchCase="'puppies'">
             <div class="profilo-info">
-                <p>Città: {{utente.citta}}</p> 
+                <p>Città: {{citta}}</p> 
                 <p>
                 </p>
             </div>

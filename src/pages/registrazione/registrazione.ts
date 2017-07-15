@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { Camera } from '@ionic-native/camera';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 import {AccountProvider} from '../../providers/account/account.provider';
+import { Events } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -20,7 +21,8 @@ export class RegistrazionePage {
               public camera:Camera, 
               public sAccount: AccountProvider,
               public alertCtrl: AlertController,
-              public loadingCtrl: LoadingController
+              public loadingCtrl: LoadingController,
+              public events: Events
               ) 
     {  
       this.utente = {
@@ -66,7 +68,10 @@ export class RegistrazionePage {
                         alert.present();
                         alert.onDidDismiss(() => {
                             //this.navCtrl.pop();
-                            this.navCtrl.push("LoginPage");
+                            this.sAccount.login(this.utente).then(()=>{
+                                this.events.publish('user:login');
+                            });
+                            
                         });
                     });
                 })
@@ -74,7 +79,7 @@ export class RegistrazionePage {
                     loading.dismiss();
                     this.alertCtrl.create({
                         title: "TeachTime",
-                        message: "Qualcosa è andato storto..",
+                        message: "Registrazione non effettuata. Esiste già un utente con questa email.",
                         buttons: ["OK"]
                     }).present(); 
                 });
@@ -118,8 +123,16 @@ export class RegistrazionePage {
     
     
     goLogin(){
-        this.navCtrl.pop();
+        //this.navCtrl.setRoot('LoginPage');
+        this.events.publish('toLogin');
     }
+    
+    itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.navCtrl.push(RegistrazionePage, {
+      item: item
+    });
+  }
   
   
   
