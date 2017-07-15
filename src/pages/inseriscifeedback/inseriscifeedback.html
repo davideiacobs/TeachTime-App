@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+        Inserisci
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/images/1.jpg">
+    </ion-avatar>
+       <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
+       <p>{{feedback.costo}}<ion-icon name="logo-euro"></ion-icon></p>
+       <p> {{feedback.materia.nome}}</p>
+       <p> {{feedback.data}} </p>
+</ion-item>
+<div class="value">
+<ion-label> Preparazione </ion-label>
+	<ion-icon name="star" id="star1" (click)="selectStar(1)"></ion-icon>
+	<ion-icon name="star"  id="star2" (click)="selectStar(2)"></ion-icon>
+	<ion-icon name="star"  id="star3" (click)="selectStar(3)"></ion-icon>
+	<ion-icon name="star-outline"  id="star4"(click)="selectStar(4)"></ion-icon>
+	<ion-icon name="star-outline"  id="star5"(click)="selectStar(5)"></ion-icon>
+</div>
+
+<div  class="value">
+<ion-label> Chiarezza </ion-label>
+	<ion-icon name="star" id="star6" (click)="selectStar(6)"></ion-icon>
+	<ion-icon name="star" id="star7" (click)="selectStar(7)"></ion-icon>
+	<ion-icon name="star" id="star8" (click)="selectStar(8)"></ion-icon>
+	<ion-icon name="star-outline" id="star9" (click)="selectStar(9)"></ion-icon>
+	<ion-icon name="star-outline" id="star10" (click)="selectStar(10)"></ion-icon>
+</div>
+
+<div  class="value">
+<ion-label> Affidabilità </ion-label>
+	<ion-icon name="star" id="star11" (click)="selectStar(11)"></ion-icon>
+	<ion-icon name="star" id="star12" (click)="selectStar(12)"></ion-icon>
+	<ion-icon name="star" id="star13" (click)="selectStar(13)"></ion-icon>
+	<ion-icon name="star-outline" id="star14" (click)="selectStar(14)"></ion-icon>
+	<ion-icon name="star-outline" id="star15" (click)="selectStar(15)"></ion-icon>
+</div>
+
+
+<ion-item>
+    <ion-textarea placeholder="Commento" [(ngModel)]="feedback.recensione" clearInput></ion-textarea>
+  </ion-item>
+
+
+    
+<button id="button" ion-button icon-end (click)="inserisci()">
+  Conferma
+  <ion-icon id="right" name="arrow-dropright"></ion-icon>
+</button>
+
+</ion-content>

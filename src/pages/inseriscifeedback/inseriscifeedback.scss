@@ -1,0 +1,41 @@
+page-inseriscifeedback {
+
+    ion-title {
+        top: 0;
+        left: 0;
+        padding: 0 90px 1px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+    
+    
+   ion-icon{
+            font-size: 200%;
+            margin-right: 10px;
+    }
+
+    .item.item-textarea{
+
+            margin: auto;
+            margin-top: 20px !important;
+            width: 80%;
+
+    }
+
+    .value{
+            position: static;
+            text-align: center;
+    }
+
+    .mb20{
+            margin-top: 20%;
+            margin-bottom: 60%;
+    }
+
+    #button{
+            margin-top: 50px;
+            width: 100%;
+    }
+
+}

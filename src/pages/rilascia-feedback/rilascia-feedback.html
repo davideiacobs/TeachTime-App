@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar text-center color="primary">
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >Rilascia Feedback</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+    <ion-item *ngFor="let feedback of feedbacks" (click)="goInserisci(feedback)">
+    <ion-avatar item-start>
+      <img src="assets/images/1.jpg">
+    </ion-avatar>
+       <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
+       <p>{{feedback.costo}}<ion-icon name="logo-euro"></ion-icon></p>
+       <p> {{feedback.materia.nome}}</p>
+       <p> {{feedback.data}} </p>
+    </ion-item>
+    
+    </ion-list>
+</ion-content>

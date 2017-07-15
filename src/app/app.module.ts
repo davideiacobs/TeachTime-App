@@ -28,6 +28,7 @@ import {HomePage} from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
 import {RegistrazionePage} from '../pages/registrazione/registrazione';
+import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {RegistrazionePage} from '../pages/registrazione/registrazione';
     MyApp,
     LoginPage,
     MioProfiloPage,
-    RegistrazionePage
+    RegistrazionePage,
+    RilasciaFeedbackPage
     ],
   imports: [
     BrowserModule,
@@ -51,8 +53,9 @@ import {RegistrazionePage} from '../pages/registrazione/registrazione';
     MyApp,
     LoginPage,
     MioProfiloPage,
-    RegistrazionePage
-      ],
+    RegistrazionePage,
+    RilasciaFeedbackPage
+  ],
   providers: [
     StatusBar,
     DatePipe,

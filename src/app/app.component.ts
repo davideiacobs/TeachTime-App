@@ -9,8 +9,11 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
+import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
+
 //providers
 import { AccountProvider } from '../providers/account/account.provider';
+
 
     @Component({
   templateUrl: 'app.html'
@@ -38,6 +41,9 @@ export class MyApp {
      });
      events.subscribe('toRegistrazione', () => {
         this.nav.push(RegistrazionePage); 
+     });
+     events.subscribe('feedback:rilasciato', () => {
+         this.nav.setRoot(RilasciaFeedbackPage); 
      });
   }
   
@@ -87,7 +93,8 @@ export class MyApp {
               this.pages = [
                   { title: 'Home', component: HomePage },
                   { title: 'Il Mio Profilo', component: MioProfiloPage },
-                  { title: 'Logout', component: null}
+                  { title: 'Logout', component: null},
+                  { title: 'Rilascia Feedback', component: RilasciaFeedbackPage}
               ];
               this.nav.setRoot(HomePage);
             }else{

@@ -1,11 +1,5 @@
 {
   "name": "teachtime",
   "app_id": "",
-  "type": "ionic-angular",
-  "proxies": [
-        {
-            "path": "/rest",
-            "proxyUrl": "http://localhost:8080/teachTime/MainApplication/rest"
-        }
-    ]
+  "type": "ionic-angular"
 }
