@@ -51,7 +51,7 @@ export class AccountProvider {
 
     login(utente : UserSignupInterface): Promise<any> {
         return new Promise((resolve, reject) => {
-            this._http.post(MY_URL_BASE+"auth/login", utente).toPromise()
+            this._http.post("http://192.168.1.5:8080/teachTime/MainApplication/rest/auth/login", utente).toPromise()
                 .then((res: Response) => {
                     const json = res.json();
                     this._sUserPersistance.save(json);
