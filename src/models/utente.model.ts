@@ -4,7 +4,7 @@ export class Utente {
     public key: number = 0;
     public nome: string = "";
     public cognome: string = "";
-    public voto: number = 0;
+    public voto: number;
     public titoloDiStudi : string = "";
     public città : string = "";
     public dataDiNascita : Date = null;
@@ -23,7 +23,7 @@ export class Utente {
             this.nome = obj.nome || this.nome;
             this.cognome = obj.cognome|| this.cognome;
             this.titoloDiStudi = obj.titoloDiStudi || this.titoloDiStudi;
-            this.città = obj.città || this.città;
+            this.città = obj.città || this.città || obj.citta;
             this.dataDiNascita = obj.dataDiNascita || this.dataDiNascita;
             this.telefono = obj.telefono || this.telefono;
             this.pwd = obj.pwd || this.pwd;

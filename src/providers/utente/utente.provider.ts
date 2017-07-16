@@ -6,28 +6,27 @@ import 'rxjs/add/operator/toPromise';
 import {MY_URL_BASE} from '../../constants';
 //models
 import {Utente} from '../../models/utente.model';
-
+import { Ripetizione } from '../../models/ripetizione.model';
 
 @Injectable()
 export class UtenteProvider {
-
-  constructor(private _http: Http) {
-    console.log('Hello UtenteProvider Provider');
-  }
   
+  private _ripetizioni: Array<Ripetizione> = null;
+     
+  constructor(private _http: Http) {
+      
+  }
   
     /**
      * Recupera il voto dell'utente dal server.
      */
     getVoto(utente:Utente): Promise<number> {
         return new Promise((resolve) => {
-                console.log(utente);
                 utente.voto = 0;
                 this._http.get(MY_URL_BASE+"users/"+utente.key+"/feedbacks/avg").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);
-                        console.log(json);
                         
                     })
                     .catch(() => resolve(utente.voto));
@@ -41,7 +40,6 @@ export class UtenteProvider {
                     .then((res: Response) => {
                         const json = res.json();
                         resolve(json);
-                        console.log(json);
                         
                     })
                     .catch(() => resolve());
@@ -57,6 +55,36 @@ export class UtenteProvider {
                     })
                     .catch(() => resolve());
             
+        });
+    }
+    
+    updateUtente(id : number, token:string,utente : Utente): Promise<any> {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json')
+        return new Promise((resolve) => {
+                this._http.put(MY_URL_BASE+"auth/"+token+"/users/"+id,utente,headers).toPromise()
+                    .then((res: Response) => {
+                        resolve(res);   
+                    })
+                    .catch(() => resolve());         
+        });
+    }
+
+    getRipetizioni(token:string): Promise<Array<Ripetizione>> {
+        return new Promise((resolve) => {
+           
+                this._ripetizioni = [];
+                console.log(token);
+                this._http.get(MY_URL_BASE+"auth/"+token+"/privateLessons/my").toPromise()
+                    .then((res: Response) => {
+                        const json = res.json();
+                            this._ripetizioni=json;
+                            console.log("sgsdgsdggs");
+                          console.log(this._ripetizioni);
+                        resolve(this._ripetizioni);
+                        
+                    })
+                    .catch(() => resolve(this._ripetizioni));
         });
     }
 

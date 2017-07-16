@@ -31,6 +31,8 @@
         "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-console": "^1.0.7",
         "cordova-plugin-device": "^1.1.6",
+        "cordova-plugin-file": "^4.3.3",
+        "cordova-plugin-file-transfer": "^1.6.3",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.3",
         "cordova-plugin-whitelist": "^1.3.2",
@@ -67,7 +69,8 @@
             "cordova-plugin-camera": {},
             "cordova-plugin-x-toast": {},
             "cordova-sqlite-storage": {},
-            "org.apache.cordova.plugin.cache": {}
+            "org.apache.cordova.plugin.cache": {},
+            "cordova-plugin-file-transfer": {}
         },
         "platforms": [
             "android"

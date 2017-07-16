@@ -43,7 +43,6 @@ export class RipetizionePage {
             var id = json["utente_key"];
             var token = json["token"]; 
             this.sUtente.getUtente(id,token).then( user => {        
-                console.log(user);                        
   		this.navCtrl.push("PrenotatiPage", {paramRipetizione:ripetizione, paramUtente:user, token:token} );
             }).catch(() => {});
   	}).catch(() => {});	   

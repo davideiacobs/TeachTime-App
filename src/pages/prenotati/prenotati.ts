@@ -35,7 +35,6 @@ export class PrenotatiPage {
      
       this.currentDate =  new Date().toISOString();
 
-      console.log(this.currentDate);
       this.token = navParams.get("token");
       this.ripetizione = navParams.get("paramRipetizione");
       this.utente = navParams.get("paramUtente");
@@ -43,9 +42,6 @@ export class PrenotatiPage {
       
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PrenotatiPage');
-  }
   
   inviaPrenotazione(){
       const loading = this.loadingCtrl.create({content: "Loading.." });

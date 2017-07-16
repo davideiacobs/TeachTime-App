@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary" text-center>
+    <button ion-button menuToggle>
+      <ion-icon id="right" name="menu"></ion-icon>
+    </button>
+      <ion-title >Modifica Profilo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+ <ion-item no-lines>
+    <ion-avatar>
+        <img [src]="base64Image" *ngIf="base64Image" style="width: 150px;height: 150px;">
+    </ion-avatar>
+ </ion-item>
+ <button ion-button color="primary" (click)="accessGallery()">Open Gallery</button>
+
+  <ion-label color="primary" fixed>Città</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="citta" type="text"></ion-input>
+    <ion-icon name="locate" item-right></ion-icon>
+  </ion-item>
+  
+
+  <ion-label color="primary" fixed>Telefono</ion-label>
+  <ion-item >
+    <ion-input [(ngModel)]="utente.telefono" type="number"></ion-input>
+  </ion-item>
+  
+  <ion-label color="primary" fixed>Titolo di Studi</ion-label>
+  <ion-item >
+    <ion-input [(ngModel)]="utente.titoloDiStudi" type="text"></ion-input>
+  </ion-item>
+
+  <button id="Conferma" ion-button icon-end (click) = "UpdateProfile();">
+    Conferma
+    <ion-icon id="right" name="arrow-dropright"></ion-icon>
+  </button>
+ 
+</ion-content>

@@ -12,7 +12,7 @@ import {STORAGE_KEYS} from '../../constants';
 export class UserPersistanceProvider implements UserPersistanceInterface {
 
     constructor(private _storage: Storage) {
-        console.log('Hello UserPersistance Provider');
+
     }
     
     save(user: string): Promise<any> {

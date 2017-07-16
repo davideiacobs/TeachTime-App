@@ -17,8 +17,7 @@ export class PrenotazioneProvider {
   }
   
   prenotati(prenotazione:Prenotazione, token:string): Promise<any> {
-        console.log(prenotazione);
-        console.log(token);
+
         return new Promise((resolve, reject) => {
             this._http.post(MY_URL_BASE + "auth/" + token + "/privateLessons/" + prenotazione.ripetizione_key.toString()+"/bookings" , prenotazione).toPromise()
                 .then(() => {

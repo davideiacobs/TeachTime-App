@@ -21,7 +21,7 @@
                     </button>
                 </p> -->
                 <ion-fab right edge>
-                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
+                    <button ion-fab color="vibrant" mini (click)="goModificaProfilo();"><ion-icon name="create"></ion-icon></button>
                 </ion-fab>
                 <ion-item no-lines>
                     <ion-avatar>
@@ -44,18 +44,21 @@
     </ion-row>
     
     <ion-toolbar no-border-top ion-slide>
-        <ion-segment [(ngModel)]="pet" ion-slide>
-          <ion-segment-button value="puppies">
+        <ion-segment [(ngModel)]="mioprofilo" ion-slide>
+          <ion-segment-button value="profilo">
             PROFILO
           </ion-segment-button>
-          <ion-segment-button value="kittens">
+          <ion-segment-button value="ripetizioni">
             RIPETIZIONI
+          </ion-segment-button>
+          <ion-segment-button value="feedback">
+            FEEDBACK
           </ion-segment-button>
         </ion-segment>
     </ion-toolbar>
     
-    <div [ngSwitch]="pet">
-        <div *ngSwitchCase="'puppies'">
+    <div [ngSwitch]="mioprofilo">
+        <div *ngSwitchCase="'profilo'">
             <div class="profilo-info">
                 <p>Città: {{citta}}</p> 
                 <p>
@@ -72,7 +75,33 @@
                 <p>
                 </p>
             </div>
-            
+            <div class="centerprof">
+                <button ion-button primary item-right (click) = "goModificaProfilo();">Modifica</button>
+            </div>
+        </div>
+
+        <div *ngSwitchCase="'ripetizioni'">
+            <ion-card *ngFor="let ripetizione of ripetizioni">
+                <ion-fab right edge>
+                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
+                </ion-fab>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col>
+                            <p>{{ripetizione.materie[0].categoria.nome}}</p>
+                        </ion-col>
+                        <ion-col>
+                            <p>{{ripetizione.costo}} €</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+            <p text-center>
+                <button ion-button item-right>Aggiungi</button>
+            </p>
+        </div>
+
+        <div *ngSwitchCase="'feedback'">
             <ion-card *ngFor="let feedback of feedbacks">
                 <ion-item>
                     <ion-avatar item-start>
@@ -93,30 +122,6 @@
                   <p>{{feedback.recensione}}</p>
                 </ion-card-content>
             </ion-card>
-        </div>
-
-        <div *ngSwitchCase="'kittens'">
-            <ion-card>
-                <ion-fab right edge>
-                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
-                </ion-fab>
-                <ion-card-content>
-                    <ion-row>
-                        <ion-col>
-                            <p>CATEGORIA 1</p>
-                        </ion-col>
-                        <ion-col>
-                            <p>18 €</p>
-                        </ion-col>
-                    </ion-row>
-                </ion-card-content>
-            </ion-card>
-            <p text-center>
-                <button ion-button icon-start>
-                    <ion-icon name='add'></ion-icon>
-                     Aggiungi
-                </button>
-            </p>
         </div>
 
     </div>

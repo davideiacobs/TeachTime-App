@@ -7,10 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import {Categoria} from '../../models/categoria.model';
 
 //Constants
-import {URL_BASE, URL, MY_URL_BASE} from '../../constants';
-
-//Types
-import {ResponseServer} from '../../types';
+import {MY_URL_BASE} from '../../constants';
 
 
 @Injectable()

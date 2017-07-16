@@ -44,13 +44,11 @@ export class RegistrazionePage {
     }).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,'+imageData;
      }, (err) => {
-      console.log(err);
     });
   }
   
   
   registrati() {
-        console.log(this.utente);
         this.utente.città = this.citta;
         this._validate().then(() => {
             

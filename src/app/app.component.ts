@@ -45,6 +45,9 @@ export class MyApp {
      events.subscribe('feedback:rilasciato', () => {
          this.nav.setRoot(RilasciaFeedbackPage); 
      });
+     /*events.subscribe('toMioProfilo', () => { 
+        this.nav.set 
+     });*/
   }
   
   

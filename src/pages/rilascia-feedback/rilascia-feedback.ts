@@ -32,7 +32,6 @@ export class RilasciaFeedbackPage {
   
    recuperaFeedbacks(){
        this.sPrenotazioneProvider.recuperaFeedbacks().then(json =>  { 
-            //console.log(json);
             this.feedbacks =  json;
            
        });          

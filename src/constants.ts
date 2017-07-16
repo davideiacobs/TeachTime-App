@@ -4,6 +4,7 @@ export const URL_BASE = USE_PROXY ? 'rest/' : 'http://localhost:8080/teachTime/M
 
 export const MY_URL_BASE = "http://localhost:8080/teachTime/MainApplication/rest/";
 
+//http://192.168.1.5:8080/teachTime/MainApplication/rest/
 export const URL = {
     /*USERS: {
         SIGNUP: "users/",

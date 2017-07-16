@@ -7,12 +7,7 @@ import {MY_URL_BASE} from '../../constants';
 //Models 
 import {Materia} from '../../models/materia.model';
 
-/*
-  Generated class for the MateriaProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class MateriaProvider {
     
@@ -33,7 +28,6 @@ export class MateriaProvider {
                 this._http.get(MY_URL_BASE+"categories/"+categoria+"/subjects").toPromise()
                     .then((res: Response) => {
                         const json = res.json();
-                        console.log(json);
                         for (let materia of json) {
                             this._materie.push(new Materia(materia));
                         }  
