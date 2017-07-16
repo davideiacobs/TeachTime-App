@@ -63,13 +63,13 @@
             "cordova-plugin-device": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
             "cordova-plugin-camera": {},
             "cordova-plugin-x-toast": {},
             "cordova-sqlite-storage": {},
             "org.apache.cordova.plugin.cache": {},
-            "cordova-plugin-file-transfer": {}
+            "cordova-plugin-file-transfer": {},
+            "cordova-plugin-whitelist": {}
         },
         "platforms": [
             "android"
