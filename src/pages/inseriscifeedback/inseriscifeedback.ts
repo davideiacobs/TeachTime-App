@@ -38,20 +38,20 @@ export class InserisciFeedbackPage {
           for (var i : number = 1; i <= 5; i++) {
                   if(i <= n){
                   document.getElementById("star" + i).setAttribute("name","star");
-                  document.getElementById("star" + i).setAttribute("class","ion-md-star ion-ios-star");
+                  document.getElementById("star" + i).setAttribute("class","ion-md-star ion-ios-star icon");
                   }else{
                           document.getElementById("star" + i).setAttribute("name","star-outline");
-                          document.getElementById("star" + i).setAttribute("class","ion-md-star-outline ion-ios-star-outline");
+                          document.getElementById("star" + i).setAttribute("class","ion-md-star-outline ion-ios-star-outline icon");
                   }
           }
     }else if( n >=6 && n<=10){	
           for (var k : number = 6; k <= 10; k++) {
                   if(k <= n){
                   document.getElementById("star" + k).setAttribute("name","star");
-                  document.getElementById("star" + k).setAttribute("class","ion-md-star ion-ios-star");
+                  document.getElementById("star" + k).setAttribute("class","ion-md-star ion-ios-star icon");
                   }else{
                           document.getElementById("star" + k).setAttribute("name","star-outline");
-                          document.getElementById("star" + k).setAttribute("class","ion-md-star-outline ion-ios-star-outline");
+                          document.getElementById("star" + k).setAttribute("class","ion-md-star-outline ion-ios-star-outline icon");
                   }
           }
     }else if( n >=11 && n<=15){
@@ -59,10 +59,10 @@ export class InserisciFeedbackPage {
           for (var j : number = 11; j <= 15; j++) {
                   if(j <= n){
                   document.getElementById("star" + j).setAttribute("name","star");
-                  document.getElementById("star" + j).setAttribute("class","ion-md-star ion-ios-star");
+                  document.getElementById("star" + j).setAttribute("class","ion-md-star ion-ios-star icon");
                   }else{
                           document.getElementById("star" + j).setAttribute("name","star-outline");
-                          document.getElementById("star" + j).setAttribute("class","ion-md-star-outline ion-ios-star-outline");
+                          document.getElementById("star" + j).setAttribute("class","ion-md-star-outline ion-ios-star-outline icon");
                   }
           }
     }

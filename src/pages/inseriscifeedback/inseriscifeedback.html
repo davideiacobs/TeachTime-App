@@ -9,12 +9,19 @@
 <ion-content padding>
  <ion-item>
     <ion-avatar item-start>
-      <img src="{{my_url_img+feedback.ripetizione.tutor.imgProfilo}}">
+      <img src="{{my_url_img+feedback.ripetizione.tutor.imgProfilo}}" style="width: 70px;height: 70px;">
     </ion-avatar>
-       <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
-       <p>{{feedback.costo}}<ion-icon name="logo-euro"></ion-icon></p>
-       <p> {{feedback.materia.nome}}</p>
-       <p> {{feedback.data}} </p>
+     <ion-row>
+        <ion-col>
+            <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
+            <p> {{feedback.materia.nome}}</p>  
+        </ion-col>
+        <ion-col>
+            <p>{{feedback.costo}} €</p>
+            <p> {{feedback.data}} </p>
+        </ion-col>
+     </ion-row>
+        
 </ion-item>
 <div class="value">
 <ion-label> Preparazione </ion-label>
@@ -49,10 +56,11 @@
   </ion-item>
 
 
-    
+ <p text-center>    
 <button id="button" ion-button icon-end (click)="inserisci()">
   Conferma
   <ion-icon id="right" name="arrow-dropright"></ion-icon>
 </button>
+ </p>
 
 </ion-content>

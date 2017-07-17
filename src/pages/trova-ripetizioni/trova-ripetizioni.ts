@@ -65,7 +65,7 @@ export class TrovaRipetizioniPage {
         const loading = this.loadingCtrl.create({content: "Loading.." });
         loading.present();
         this.lessons = null;
-        
+        if(città!=""){
         this.sLessons.getRipetizioni(categoria,materia,città).then(lessons => {
             loading.dismiss().then(() => {
             });
@@ -86,7 +86,14 @@ export class TrovaRipetizioniPage {
             }
 
         })
-
+        }else{
+            loading.dismiss();
+            this.alertCtrl.create({
+                title: "TeachTime",
+                message: "Inserisci la tua città per cercare la ripetizione adatta ai tuoi bisogni!",
+                buttons: ["OK"]
+            }).present(); 
+        }
     }
     
     goRipetizione(ripetizione : Ripetizione){

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar text-center color="primary">
+  <ion-navbar color="primary">
      <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,10 +13,16 @@
     <ion-avatar item-start>
       <img src="{{my_url_img+feedback.ripetizione.tutor.imgProfilo}}">
     </ion-avatar>
-       <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
-       <p>{{feedback.costo}}<ion-icon name="logo-euro"></ion-icon></p>
-       <p> {{feedback.materia.nome}}</p>
-       <p> {{feedback.data}} </p>
+        <ion-row>
+            <ion-col>
+                <p>{{feedback.ripetizione.tutor.nome | capitalize}} {{feedback.ripetizione.tutor.cognome | surname}}</p>
+                <p> {{feedback.materia.nome}}</p>               
+            </ion-col>
+            <ion-col>
+                <p>{{feedback.costo}} €</p>
+                <p> {{feedback.data}} </p>
+            </ion-col>
+        </ion-row>
     </ion-item>
     
     </ion-list>
