@@ -8,5 +8,7 @@ export interface UserSignupInterface {
     telefono: string;
     pwd: string;
     email: string;
+    titoloDiStudi: string;
+    imgProfilo : string;
     
 }

@@ -60,11 +60,14 @@ export class UtenteProvider {
     
     updateUtente(id : number, token:string,utente : Utente): Promise<any> {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/json')
+        headers.append('Content-Type', 'application/json');
+       
         return new Promise((resolve) => {
+            alert(utente.imgProfilo);
                 this._http.put(MY_URL_BASE+"auth/"+token+"/users/"+id,utente,headers).toPromise()
                     .then((res: Response) => {
                         resolve(res);   
+                        
                     })
                     .catch(() => resolve());         
         });

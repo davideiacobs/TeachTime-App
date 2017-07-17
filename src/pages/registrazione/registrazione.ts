@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 import {AccountProvider} from '../../providers/account/account.provider';
 import { Events } from 'ionic-angular';
+import {IMG_DEF} from '../../constants';
 
 @IonicPage()
 @Component({
@@ -11,14 +11,13 @@ import { Events } from 'ionic-angular';
   templateUrl: 'registrazione.html',
 })
 export class RegistrazionePage {
+  
   citta : string;
-  base64Image:any;
   utente: UserSignupInterface;
   annoMax: string = "1999";
   
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
-              public camera:Camera, 
               public sAccount: AccountProvider,
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,
@@ -32,55 +31,50 @@ export class RegistrazionePage {
             telefono: "",
             email: "",
             città: "",
-            pwd : ""
+            pwd : "",
+            titoloDiStudi : "",
+            imgProfilo : IMG_DEF
         };
         this.citta = "";
   }
 
-  accessGallery(){
-   this.camera.getPicture({
-     sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-     destinationType: this.camera.DestinationType.DATA_URL
-    }).then((imageData) => {
-      this.base64Image = 'data:image/jpeg;base64,'+imageData;
-     }, (err) => {
-    });
-  }
+  
+   
   
   
   registrati() {
         this.utente.città = this.citta;
         this._validate().then(() => {
-            
             const loading = this.loadingCtrl.create({content: "Loading.." });
             loading.present();
-            
-            this.sAccount.registrati(this.utente)
-                .then(() => {
-                    loading.dismiss().then(() => {
-                        const alert = this.alertCtrl.create({
-                            title: "TeachTime",
-                            message: "Registrazione Completata. Benvenuto in TeachTime!",
-                            buttons: ["OK"]
-                        });
-                        alert.present();
-                        alert.onDidDismiss(() => {
-                            //this.navCtrl.pop();
-                            this.sAccount.login(this.utente).then(()=>{
-                                this.events.publish('user:login');
+
+                this.sAccount.registrati(this.utente)
+                    .then(() => {
+
+                        loading.dismiss().then(() => {
+                            const alert = this.alertCtrl.create({
+                                title: "TeachTime",
+                                message: "Registrazione Completata. Benvenuto in TeachTime!",
+                                buttons: ["OK"]
                             });
-                            
+                            alert.present();
+                            alert.onDidDismiss(() => {
+                                //this.navCtrl.pop();
+                                this.sAccount.login(this.utente).then(()=>{
+                                    this.events.publish('user:register');
+                                });
+
+                            });
                         });
+                    })
+                    .catch(() => {
+                        loading.dismiss();
+                        this.alertCtrl.create({
+                            title: "TeachTime",
+                            message: "Registrazione non effettuata. Ricontrolla i tuoi dati.",
+                            buttons: ["OK"]
+                        }).present(); 
                     });
-                })
-                .catch(() => {
-                    loading.dismiss();
-                    this.alertCtrl.create({
-                        title: "TeachTime",
-                        message: "Registrazione non effettuata. Esiste già un utente con questa email.",
-                        buttons: ["OK"]
-                    }).present(); 
-                });
         }).catch(() => {});
     }
     

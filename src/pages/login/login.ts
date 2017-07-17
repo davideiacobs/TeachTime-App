@@ -26,7 +26,9 @@ export class LoginPage {
             telefono: "",
             email: "",
             città: "",
-            pwd : ""
+            pwd : "",
+            imgProfilo: "",
+            titoloDiStudi : ""
         };
                 
         }
@@ -94,4 +96,6 @@ export class LoginPage {
       item: item
     });
   }
+
+
 }

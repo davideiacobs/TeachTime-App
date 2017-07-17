@@ -29,12 +29,14 @@
         <ion-item>
             <ion-label>Categoria</ion-label>
             <ion-select #c (ionChange)="getMaterie(c.value)">
+                <ion-option value=""> </ion-option>
               <ion-option *ngFor="let categoria of categories" value={{categoria.key}}>{{categoria.nome}}</ion-option>
             </ion-select>
         </ion-item>
        <ion-item>
             <ion-label>Materia</ion-label>
             <ion-select #m>
+                 <ion-option value=""> </ion-option>
               <ion-option *ngFor="let materia of subjects" value={{materia.key}}>{{materia.nome}}</ion-option>
             </ion-select>
         </ion-item>
@@ -45,7 +47,7 @@
     <ion-list>
         <ion-item *ngFor="let ripetizione of lessons" (click)="goRipetizione(ripetizione)">
     <ion-avatar item-start>
-      <img src="assets/images/1.jpg">
+      <img src="{{my_url_img+ripetizione.tutor.imgProfilo}}">
     </ion-avatar>
     <h2>{{ripetizione.tutor.nome | capitalize }} {{ripetizione.tutor.cognome | surname}}</h2>
     <p>{{ripetizione.tutor.dataDiNascita | age }} </p>

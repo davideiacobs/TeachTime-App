@@ -7,6 +7,8 @@ import {AccountProvider} from '../../providers/account/account.provider';
 import {UserPersistanceProvider} from '../../providers/userpersistance/userpersistance.provider';
 import {UtenteProvider} from '../../providers/utente/utente.provider';
 
+//constants
+import {MY_URL_IMG} from '../../constants';
 
 @IonicPage()
 
@@ -20,7 +22,8 @@ export class RipetizionePage {
   
   isLogged : boolean;    
   ripetizione : Ripetizione;
- 
+  my_url_img = MY_URL_IMG
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               public sAccount : AccountProvider,

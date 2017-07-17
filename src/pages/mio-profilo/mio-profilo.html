@@ -21,11 +21,11 @@
                     </button>
                 </p> -->
                 <ion-fab right edge>
-                    <button ion-fab color="vibrant" mini (click)="goModificaProfilo();"><ion-icon name="create"></ion-icon></button>
+                    <button ion-fab color="vibrant" mini (click)="accessGallery();"><ion-icon name="create"></ion-icon></button>
                 </ion-fab>
                 <ion-item no-lines>
                     <ion-avatar>
-                        <img src="assets/images/1.jpg" style="width: 150px;height: 150px;">
+                        <img [src]="image" [(ngModel)]="image" ngDefaultControl style="width: 150px;height: 150px;">
                     </ion-avatar>
                 </ion-item>
                 <div text-center>
@@ -38,7 +38,7 @@
                             <div *ngIf="utente.voto === 2"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
                             <div *ngIf="utente.voto === 1"><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
                             <div *ngIf="utente.voto === 0"><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
-                        </div>
+                </div>
             </div>
         </ion-col>
     </ion-row>

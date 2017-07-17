@@ -5,6 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { DatePipe } from '@angular/common';
@@ -29,6 +32,7 @@ import { LoginPage } from '../pages/login/login';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
 import {RegistrazionePage} from '../pages/registrazione/registrazione';
 import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 
 @NgModule({
@@ -60,6 +64,9 @@ import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback
     StatusBar,
     DatePipe,
     Camera,
+    File,
+    FileTransfer,
+    ImagePicker,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaProvider,

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import { Events } from 'ionic-angular';
+//constants
+import {MY_URL_IMG} from '../../constants';
 
 //models
 import {Prenotazione} from '../../models/prenotazione.model';
 //providers
 import {PrenotazioneProvider} from '../../providers/prenotazione/prenotazione.provider';
-
 
 @IonicPage()
 @Component({
@@ -17,6 +18,8 @@ export class InserisciFeedbackPage {
   
   public feedback : Prenotazione;
   public rating : number;
+  public my_url_img = MY_URL_IMG
+  
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,  
               public sPrenotazione : PrenotazioneProvider,

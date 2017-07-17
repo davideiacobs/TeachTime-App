@@ -14,6 +14,10 @@ import {Materia} from '../../models/materia.model';
 import {Ripetizione} from '../../models/ripetizione.model';
 
 
+//constants
+import {MY_URL_IMG} from '../../constants';
+
+
 
 @IonicPage()
 @Component({
@@ -26,6 +30,7 @@ export class TrovaRipetizioniPage {
     categories: Array<Categoria> = [];
     subjects: Array<Materia> = [];
     lessons: Array<Ripetizione> = [];
+    my_url_img = MY_URL_IMG
     
     
     constructor(

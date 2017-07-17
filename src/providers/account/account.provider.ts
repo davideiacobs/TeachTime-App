@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {Events} from 'ionic-angular';
+import {Events, LoadingController} from 'ionic-angular';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import {UserSignupInterface} from '../../interfaces/user-signup.interface';
@@ -18,6 +19,7 @@ export class AccountProvider {
     constructor(
         private _http: Http,
         public events: Events,
+        public loadingCtrl: LoadingController,
         sUserPers: UserPersistanceProvider
     ) {
         this._sUserPersistance = sUserPers;
@@ -69,11 +71,13 @@ export class AccountProvider {
      logout(): Promise<any> { 
          return new Promise((resolve, reject) => {
             this.initialize().then(()=>{ 
-                
+                const loading = this.loadingCtrl.create({content: "Loading.." });
+                loading.present();
                 this._http.post(MY_URL_BASE +"auth/logout", this._sessione.token).toPromise()
                     .then(() => {
                         this._sUserPersistance.remove();
                         //this.events.publish('user:logout');
+                        loading.dismiss();
                          resolve();
                     }).catch((err: Response) => reject(`Errore status: ${err.status}`));
             });
