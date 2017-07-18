@@ -9,7 +9,7 @@
 <ion-content>
         <ion-item>
           <ion-label>Categoria</ion-label>
-          <ion-select #c (ionChange)="getMaterie(c.value)">
+          <ion-select #c (ionChange)="getMaterie(c.value)" [(ngModel)]="ripetizione.categoria_key">
      <ion-option *ngFor="let categoria of categories"  ngDefaultControl #c value={{categoria.key}}>{{categoria.nome}}</ion-option>
           </ion-select>
         </ion-item>
@@ -22,8 +22,6 @@
         <ion-item>
             <ion-input type="text" value="" #materiaNuova ngDefaultControl  placeholder="Inserisci una nuova materia" ></ion-input>
         </ion-item>
-    
-
      <ion-item *ngFor=" let choose of choosesubject" >
          <ion-input clear disabled="true"  type="text" #scelta value="{{choose.nome}}"></ion-input>
       <ion-note item-end>
@@ -38,34 +36,33 @@
             <ion-icon name='add-circle'></ion-icon>
         </button>
     </p>
-    
     <ion-list>
 
   <ion-item>
     <ion-label floating>Città</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="citta"></ion-input>
     <button ion-button item-end outline clear large><ion-icon name='md-locate'></ion-icon></button>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Luogo incontro</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="ripetizione.luogoIncontro"></ion-input>
   </ion-item>
     
      <ion-item>
     <ion-label floating>Prezzo/Ora</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="number" [(ngModel)]="ripetizione.costo"></ion-input>
     <ion-icon item-end name='logo-euro' color="primary"></ion-icon>
     
   </ion-item>
     <ion-item>
         <ion-label floating>Descrizione</ion-label>
-   <ion-textarea></ion-textarea>
+   <ion-textarea [(ngModel)]="ripetizione.descr" ></ion-textarea>
   </ion-item>
 
 </ion-list>      
     
-    <p text-center><button ion-button>Conferma</button></p>
+    <p text-center><button ion-button (click)="aggiungi();">Conferma</button></p>
   
     
 

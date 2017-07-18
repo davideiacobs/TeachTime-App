@@ -1,34 +1,40 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
+//providers
 import {CategoriaProvider} from '../../providers/categoria/categoria.provider';
 import {MateriaProvider} from '../../providers/materia/materia.provider';
+import {RipetizioneProvider} from '../../providers/ripetizione/ripetizione.provider';
+//models
 import {Categoria} from '../../models/categoria.model';
 import {Materia} from '../../models/materia.model';
-/**
- * Generated class for the OffriRipetizionePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import {Ripetizione} from '../../models/ripetizione.model';
+
+
 @IonicPage()
 @Component({
   selector: 'page-offri-ripetizione',
   templateUrl: 'offri-ripetizione.html',
 })
 export class OffriRipetizionePage{
-
+  citta: string = "";
   categories: Array<Categoria> = [];
   subjects: Array<Materia> = [];
   choosesubject : Array<Materia> = [];
-  //singlesubject  : Materia ;
-  //defaultsubject  : Materia ;
+  ripetizione : Ripetizione;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,public sCategories: CategoriaProvider,public sSubjects: MateriaProvider) {
-    
-    //this.singlesubject = new Materia();
-    //this.defaultsubject = new Materia();
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController,
+              public sCategories: CategoriaProvider,
+              public sSubjects: MateriaProvider,
+              public sRipetizione: RipetizioneProvider,
+              public events: Events
+              ) {
+              
     this.getCategories();
+    this.ripetizione = new Ripetizione();
   }
 
   getCategories(){
@@ -91,17 +97,30 @@ export class OffriRipetizionePage{
               }
               i++;
           }    
-
+    }
+    
+    
+    aggiungi(){
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
+        this.ripetizione.città = this.citta;
+        this.ripetizione.materie = this.choosesubject;
+        this.sRipetizione.addRipetizione(this.ripetizione).then(() => {
+            loading.dismiss().then(() => {
+                        const alert = this.alertCtrl.create({
+                            title: "TeachTime",
+                            message: "Il tuo annuncio è stato inserito!",
+                            buttons: ["OK"]
+                        });
+                        alert.present();
+                        alert.onDidDismiss(() => {
+                            this.events.publish("user:register");               
+                        });
+                    });
+        });
+       
     }
 
-      /*this.singlesubject.nome != "")
-      {
-        let savesubject=this.singlesubject;
-       this.choosesubject.push(savesubject);
-      }else{
-        let savesubject=this.defaultsubject;
-        this.choosesubject.push(savesubject);
-      }*/
 
 
 

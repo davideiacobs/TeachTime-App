@@ -19,7 +19,19 @@ export class RipetizioneProvider {
         
   }
   
-  
+   addRipetizione(ripetizione:Ripetizione): Promise<any> {
+       return new Promise((resolve, reject) => {
+           console.log(ripetizione);
+           if(this.sAccount.isLogged()){
+               this.sUserPersistance.get().then(json => {
+                  var token = json["token"];
+                  this._http.post(MY_URL_BASE+"auth/"+token+"/privateLessons", ripetizione).toPromise().then((res:Response) => {
+                      resolve();
+                  }).catch(() => reject()); 
+               }).catch(() => {});
+           } 
+       });       
+   }
    /**
      * Recupera le ripetizioni dal server.
      */
