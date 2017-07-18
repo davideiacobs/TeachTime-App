@@ -83,7 +83,7 @@
         <div *ngSwitchCase="'ripetizioni'">
             <ion-card *ngFor="let ripetizione of ripetizioni">
                 <ion-fab right edge>
-                    <button ion-fab color="vibrant" mini><ion-icon name="create"></ion-icon></button>
+                    <button ion-fab color="vibrant" mini (click)="goModificaRipetizione(ripetizione)"><ion-icon name="create"></ion-icon></button>
                 </ion-fab>
                 <ion-card-content>
                     <ion-row>

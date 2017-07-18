@@ -24,6 +24,8 @@ export class HomePage {
     });
   }
 
- 
+  goAggiungiRipetizione(){
+      this.navCtrl.push("OffriRipetizionePage");
+  }
 
 }

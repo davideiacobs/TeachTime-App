@@ -30,7 +30,7 @@ export class MioProfiloPage {
     image : string =  "";
     img_upd : Utente = new Utente();
     fileTransfer: FileTransferObject = this.transfer.create();
-    //base64Image:any;
+    mioprofilo : string = "";
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -40,6 +40,7 @@ export class MioProfiloPage {
               private transfer: FileTransfer,
               private camera: Camera) 
   {
+        this.mioprofilo="profilo";
         this.image =  "";
   	this.getUser();
         this.getRipetizioni();
@@ -99,8 +100,8 @@ export class MioProfiloPage {
         this.navCtrl.push("ModificaProfiloPage",{paramUtente:this.utente});
     }
 
-    goModificaRipetizione(){
-        this.navCtrl.push("ModificaRipetizionePage");
+    goModificaRipetizione(ripetizione: Ripetizione){
+        this.navCtrl.push("ModificaRipetizionePage", {paramRipetizione:ripetizione});
     }
 
     goRegistrazione(){
@@ -164,11 +165,6 @@ export class MioProfiloPage {
       
   }
     
- 
-
-
-    
-
   
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!

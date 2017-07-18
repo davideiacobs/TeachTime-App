@@ -17,6 +17,7 @@ import {Ripetizione} from '../../models/ripetizione.model';
   templateUrl: 'offri-ripetizione.html',
 })
 export class OffriRipetizionePage{
+    
   citta: string = "";
   categories: Array<Categoria> = [];
   subjects: Array<Materia> = [];
@@ -101,32 +102,51 @@ export class OffriRipetizionePage{
     
     
     aggiungi(){
-        const loading = this.loadingCtrl.create({content: "Loading.." });
-        loading.present();
-        this.ripetizione.città = this.citta;
-        this.ripetizione.materie = this.choosesubject;
-        this.sRipetizione.addRipetizione(this.ripetizione).then(() => {
-            loading.dismiss().then(() => {
-                        const alert = this.alertCtrl.create({
-                            title: "TeachTime",
-                            message: "Il tuo annuncio è stato inserito!",
-                            buttons: ["OK"]
+        this._validate().then(() => {
+            const loading = this.loadingCtrl.create({content: "Loading.." });
+            loading.present();
+            this.ripetizione.città = this.citta;
+            this.ripetizione.materie = this.choosesubject;
+            this.sRipetizione.addRipetizione(this.ripetizione).then(() => {
+                loading.dismiss().then(() => {
+                            const alert = this.alertCtrl.create({
+                                title: "TeachTime",
+                                message: "Il tuo annuncio è stato inserito!",
+                                buttons: ["OK"]
+                            });
+                            alert.present();
+                            alert.onDidDismiss(() => {
+                                this.events.publish("user:register");               
+                            });
                         });
-                        alert.present();
-                        alert.onDidDismiss(() => {
-                            this.events.publish("user:register");               
-                        });
-                    });
-        });
+            });
+        }).catch(() => {});
        
     }
-
-
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OffriRipetizionePage');
-  }
+    
+    
+    private _validate() {
+        return new Promise((resolve, reject) => {
+            let msg = "";
+            if (this.ripetizione.costo < 1) {
+                msg = "Inserisci il costo della ripetizione";
+            } else if (this.citta === "") {
+                msg = "Inserisci la città";
+            } else if (this.ripetizione.materie.length < 1){
+                msg = "Scegli almeno una materia";
+            }
+            if (msg !== "") {
+                this.alertCtrl.create({
+                    title: "TeachTime",
+                    message: msg,
+                    buttons: ["OK"]
+                }).present();
+                reject();
+            } else {
+                resolve();
+            }
+        });
+    }
 
 
 }

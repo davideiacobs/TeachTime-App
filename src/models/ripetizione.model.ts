@@ -10,9 +10,9 @@ export class Ripetizione {
     public costo: number = 0;
     public descr: string = "";
     public città: string = "";
-    public tutor_key: number = 0;
+    public tutor_key: number;
     public tutor: Utente;
-    public categoria_key : number = 0;
+    public categoria_key : number;
     public materie : Array<Materia> =  [];
     public categoria : Categoria;
     

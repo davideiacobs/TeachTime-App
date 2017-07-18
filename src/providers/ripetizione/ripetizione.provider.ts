@@ -15,7 +15,9 @@ export class RipetizioneProvider {
 
   private _ripetizioni: Array<Ripetizione> = null;
   
-  constructor( private _http: Http, private sAccount : AccountProvider, private sUserPersistance : UserPersistanceProvider) {
+  constructor( private _http: Http, 
+               private sAccount : AccountProvider, 
+               private sUserPersistance : UserPersistanceProvider) {
         
   }
   
@@ -32,6 +34,25 @@ export class RipetizioneProvider {
            } 
        });       
    }
+   
+   
+   
+   updRipetizione(ripetizione:Ripetizione): Promise<any> {
+       return new Promise((resolve, reject) => {
+           console.log(ripetizione);
+           if(this.sAccount.isLogged()){
+               this.sUserPersistance.get().then(json => {
+                  var token = json["token"];
+                   let headers = new Headers();
+                   headers.append('Content-Type', 'application/json'); 
+                  this._http.put(MY_URL_BASE+"auth/"+token+"/privateLessons/"+ripetizione.key, ripetizione, headers).toPromise().then((res:Response) => {
+                      resolve();
+                  }).catch(() => reject()); 
+               }).catch(() => {});
+           } 
+       });       
+   }
+   
    /**
      * Recupera le ripetizioni dal server.
      */

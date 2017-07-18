@@ -1,6 +1,4 @@
 
-
-
 export class Materia {
     
     public key: number = 0;
