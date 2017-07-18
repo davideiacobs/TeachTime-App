@@ -1,7 +1,7 @@
 
 <ion-header>
     
-    <ion-navbar color="primary" text-center>
+    <ion-navbar color="primary">
         <ion-title>Dettaglio Ripetizione</ion-title>
     </ion-navbar>
     
@@ -25,29 +25,30 @@
                             <p>{{ripetizione.tutor.titoloDiStudi}}</p>
                         </div>
                         <div text-center>
-                            <div *ngIf="ripetizione.tutor.voto  === 5 "><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
-                            <div *ngIf="ripetizione.tutor.voto === 4"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
-                            <div *ngIf="ripetizione.tutor.voto  === 3"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
-                            <div *ngIf="ripetizione.tutor.voto === 2"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
-                            <div *ngIf="ripetizione.tutor.voto === 1"><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
-                            <div *ngIf="ripetizione.tutor.voto === 0"><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto  === 5" class="value"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto === 4" class="value"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto  === 3" class="value"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto === 2" class="value"><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto === 1" class="value"><ion-icon name="star"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
+                            <div *ngIf="ripetizione.tutor.voto === 0" class="value"><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon><ion-icon name="star-outline"></ion-icon></div>
                         </div>
                     </div>
                 </ion-col>
             </ion-row>
         </ion-card-content>
     </ion-card>
-    <ion-item>
+    <ion-item no-lines>
         <p>Costo : {{ripetizione.costo}} <ion-icon name="logo-euro"></ion-icon></p>
         <p>Categoria : {{ripetizione.categoria.nome}}</p>
         <p *ngFor="let materia of ripetizione.materie"> Materia : {{materia.nome}}</p>
-        <p> Città : {{ripetizione.citta}} </p>
+        <p> Città : {{citta}} </p>
         <p> Luogo d'Incontro : {{ripetizione.luogoIncontro}} </p>
         <p> Descrizione : {{ripetizione.descr}} </p>
-        <button ion-button full (click)="goPrenotazione(ripetizione)" >Prenotati</button>
-        
-        
     </ion-item>
+        <button ion-button full (click)="goPrenotazione(ripetizione)">Prenotati</button>
+        
+        
+    
 </ion-content>
 
 

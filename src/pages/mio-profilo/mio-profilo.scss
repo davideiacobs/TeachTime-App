@@ -20,6 +20,14 @@ page-mio-profilo {
        text-align: center;
     }
     
+    .value>.icon[name="star"]{
+        color:color($colors, star);
+    }
+    .value>.icon[name="star-outline"]{
+        color:color($colors, star-des); 
+    }
+    
+    
 }
 
 

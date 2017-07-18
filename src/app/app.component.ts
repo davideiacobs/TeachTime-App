@@ -10,6 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { RegistrazionePage } from '../pages/registrazione/registrazione';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
 import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
+import {ContattaciPage} from '../pages/contattaci/contattaci';
+import {AboutPage} from '../pages/about/about';
 
 //providers
 import { AccountProvider } from '../providers/account/account.provider';
@@ -31,6 +33,7 @@ export class MyApp {
               public splashScreen: SplashScreen,
               public sAccount : AccountProvider,
               public events: Events) {
+     
      this.initializeApp();
      
      events.subscribe('user:login', () => {
@@ -78,7 +81,9 @@ export class MyApp {
                 this.pages = [
                     { title: 'Home', component: HomePage },
                     { title: 'Login', component: LoginPage },
-                    { title: 'Registrati', component: RegistrazionePage}
+                    { title: 'Registrati', component: RegistrazionePage},
+                    { title: 'Contattaci', component: ContattaciPage},
+                    { title: 'Chi Siamo', component: AboutPage}
                 ];
                // redirect to home
                this.nav.setRoot(HomePage);
@@ -97,14 +102,18 @@ export class MyApp {
                   { title: 'Home', component: HomePage },
                   { title: 'Il Mio Profilo', component: MioProfiloPage },
                   { title: 'Logout', component: null},
-                  { title: 'Rilascia Feedback', component: RilasciaFeedbackPage}
+                  { title: 'Rilascia Feedback', component: RilasciaFeedbackPage},
+                  { title: 'Contattaci', component: ContattaciPage},
+                  { title: 'Chi Siamo', component: AboutPage}
               ];
               this.nav.setRoot(HomePage);
             }else{
                 this.pages = [
                   { title: 'Home', component: HomePage },
                   { title: 'Login', component: LoginPage },
-                  { title: 'Registrati', component: RegistrazionePage}
+                  { title: 'Registrati', component: RegistrazionePage},
+                  { title: 'Contattaci', component: ContattaciPage},
+                  { title: 'Chi Siamo', component: AboutPage}
               ];
             }
       });

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Contattaci
+    </ion-title>  
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-item class ="center">
+		<ion-icon name="clipboard" item-left color="secondary"></ion-icon>
+		<ion-input type="text" placeholder = "Oggetto" [(ngModel)]="oggetto"></ion-input>
+	</ion-item>
+
+	<ion-item style="margin-bottom:20px;">
+		<ion-textarea placeholder = "Messaggio" [(ngModel)]="messaggio" ></ion-textarea>
+	</ion-item>
+
+	<button ion-button full (click) = "contattaci();">Contattaci</button>
+
+</ion-content>
+

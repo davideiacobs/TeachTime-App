@@ -19,7 +19,7 @@ import {MY_URL_IMG} from '../../constants';
 
 
 export class RipetizionePage {
-  
+  citta: string;
   isLogged : boolean;    
   ripetizione : Ripetizione;
   my_url_img = MY_URL_IMG
@@ -32,6 +32,7 @@ export class RipetizionePage {
       ){
 
     this.ripetizione = navParams.get("paramRipetizione");
+    this.citta = this.ripetizione.città;
     this.isLogged = this.sAccount.isLogged();
 
     

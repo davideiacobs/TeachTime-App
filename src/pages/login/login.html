@@ -1,9 +1,4 @@
-<!--
-  Generated template for the LoginPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="primary">
@@ -19,23 +14,21 @@
 <ion-content padding>
 
   <ion-item class="center">
-  	<ion-icon name="mail" item-left padding-right></ion-icon>
+  	<ion-icon name="mail" item-left padding-right color="secondary"></ion-icon>
     <ion-input type="text" placeholder="Email" [(ngModel)]="utente.email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-input type="password" placeholder="Password" [(ngModel)]="utente.pwd"></ion-input>
-    <ion-icon name="lock" class="ion-lock" item-left padding-right></ion-icon>
+    <ion-icon name="lock" class="ion-lock" item-left padding-right color="secondary"></ion-icon>
   </ion-item>
 
-<div padding  text-center>
+<div text-center padding>
   <button ion-button block color="primary" (click)="login();">Sign In</button>
-</div>
 
-<ion-item>
-    <button ion-button clear item-left>Password Dimenticata?</button>
-    <button ion-button clear item-right (click) = "goRegistrazione();">Registrati</button>
+<ion-item no-lines text-center>
+    <button ion-button clear item-right (click) = "goRegistrazione(); ">Registrati</button>
   </ion-item >
-
+</div>
 </ion-content>
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController  } from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import {GeoProvider} from '../../providers/geo/geo.provider';
+
 //providers
 import {RipetizioneProvider} from '../../providers/ripetizione/ripetizione.provider';
 import {MateriaProvider} from '../../providers/materia/materia.provider';
@@ -27,7 +29,9 @@ import {Materia} from '../../models/materia.model';
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,
               public sRipetizione: RipetizioneProvider,
-              public events: Events) {
+              public events: Events,
+              public geo: GeoProvider
+              ) {
     
     
     this.ripetizione = this.navParams.get("paramRipetizione");
@@ -124,5 +128,33 @@ import {Materia} from '../../models/materia.model';
         });
     }
     
+    
+    doConfirm(){
+         const loading = this.loadingCtrl.create({content: "Loading.." });
+            loading.present();
+            this.sRipetizione.delRipetizione(this.ripetizione).then(() => {
+                loading.dismiss().then(() => {
+                            const alert = this.alertCtrl.create({
+                                title: "TeachTime",
+                                message: "Il tuo annuncio è stato cancellato!",
+                                buttons: ["OK"]
+                            });
+                            alert.present();
+                            alert.onDidDismiss(() => {
+                                this.events.publish("user:register");               
+                            });
+                        });
+            });
+    }
+    
+    
+    geolocate(){
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
+        this.geo.geolocate().then((city : any) => {
+             this.citta = city;
+             loading.dismiss(); 
+        });
+    }
 
 }

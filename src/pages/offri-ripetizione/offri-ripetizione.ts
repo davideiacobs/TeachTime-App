@@ -5,6 +5,8 @@ import { Events } from 'ionic-angular';
 import {CategoriaProvider} from '../../providers/categoria/categoria.provider';
 import {MateriaProvider} from '../../providers/materia/materia.provider';
 import {RipetizioneProvider} from '../../providers/ripetizione/ripetizione.provider';
+import {GeoProvider} from '../../providers/geo/geo.provider';
+
 //models
 import {Categoria} from '../../models/categoria.model';
 import {Materia} from '../../models/materia.model';
@@ -31,7 +33,8 @@ export class OffriRipetizionePage{
               public sCategories: CategoriaProvider,
               public sSubjects: MateriaProvider,
               public sRipetizione: RipetizioneProvider,
-              public events: Events
+              public events: Events,
+              public geo: GeoProvider
               ) {
               
     this.getCategories();
@@ -147,6 +150,17 @@ export class OffriRipetizionePage{
             }
         });
     }
+    
+    
+     geolocate(){
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
+        this.geo.geolocate().then((city : any) => {
+             this.citta = city;
+             loading.dismiss(); 
+        });
+    }
+
 
 
 }

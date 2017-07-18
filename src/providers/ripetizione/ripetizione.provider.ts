@@ -23,7 +23,6 @@ export class RipetizioneProvider {
   
    addRipetizione(ripetizione:Ripetizione): Promise<any> {
        return new Promise((resolve, reject) => {
-           console.log(ripetizione);
            if(this.sAccount.isLogged()){
                this.sUserPersistance.get().then(json => {
                   var token = json["token"];
@@ -36,10 +35,23 @@ export class RipetizioneProvider {
    }
    
    
+   delRipetizione(ripetizione:Ripetizione): Promise<any> {
+       return new Promise((resolve, reject) => {
+           if(this.sAccount.isLogged()){
+               this.sUserPersistance.get().then(json => {
+                  var token = json["token"];
+                  this._http.delete(MY_URL_BASE+"auth/"+token+"/privateLessons/"+ripetizione.key).toPromise().then((res:Response) => {
+                      resolve();
+                  }).catch(() => reject()); 
+               }).catch(() => {});
+           } 
+       });       
+   }
+   
+   
    
    updRipetizione(ripetizione:Ripetizione): Promise<any> {
        return new Promise((resolve, reject) => {
-           console.log(ripetizione);
            if(this.sAccount.isLogged()){
                this.sUserPersistance.get().then(json => {
                   var token = json["token"];

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,AlertController } from 'ionic-angular';
 import { Utente } from '../../models/utente.model';
+//providers
+import {GeoProvider} from '../../providers/geo/geo.provider';
 import { UtenteProvider} from '../../providers/utente/utente.provider';
 import { AccountProvider } from '../../providers/account/account.provider';
 import { UserPersistanceProvider } from '../../providers/userpersistance/userpersistance.provider';
@@ -17,7 +19,15 @@ export class ModificaProfiloPage {
     utente : Utente = new Utente();
     citta : string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public sUtente : UtenteProvider,public sAccount : AccountProvider,public token : UserPersistanceProvider,public loadingCtrl: LoadingController,  public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public sUtente : UtenteProvider,
+              public sAccount : AccountProvider,
+              public token : UserPersistanceProvider,
+              public loadingCtrl: LoadingController,  
+              public alertCtrl: AlertController,
+              public geo: GeoProvider              
+              ) {
   	this.utente.set(navParams.get("paramUtente"));
         this.citta = this.utente.città;
   }
@@ -58,7 +68,7 @@ export class ModificaProfiloPage {
       }).catch(() => {});
     }
 
-private _validate() {
+    private _validate() {
         return new Promise((resolve, reject) => {
             let msg = "";
             if (this.utente.telefono.length < 10){
@@ -76,6 +86,16 @@ private _validate() {
             } else {
                 resolve();
             }
+        });
+    }
+    
+    
+    geolocate(){
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
+        this.geo.geolocate().then((city : any) => {
+             this.citta = city;
+             loading.dismiss(); 
         });
     }
 

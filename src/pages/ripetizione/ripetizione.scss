@@ -3,4 +3,12 @@ page-ripetizione {
     .foto-margin{
         margin-bottom: 10px;
     }
+    
+    
+.value>.icon[name="star"]{
+        color:color($colors, star);
+    }
+    .value>.icon[name="star-outline"]{
+        color:color($colors, star-des); 
+    }
 }

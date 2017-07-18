@@ -1,11 +1,6 @@
-<!--
-  Generated template for the ModificaRipetizionePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="primary" text-center>
+  <ion-navbar color="primary">
     <ion-title>
       Modifica Ripetizione
     </ion-title>
@@ -14,7 +9,7 @@
 
 <ion-content>
     <h4 text-center class="mod-rip-categ">{{ripetizione.materie[0].categoria.nome}}</h4>
-    <ion-item>
+    <ion-item class="materianuova">
             <ion-label>Materia</ion-label>
             <ion-select #m>
               <ion-option *ngFor="let mat of subjects" ngDefaultControl value={{mat.nome}}>{{mat.nome}}</ion-option>
@@ -24,38 +19,34 @@
          <ion-input clear disabled="true"  type="text" #scelta value="{{choose.nome}}"></ion-input>
       <ion-note item-end>
        <button ion-button icon-start clear color="dark" (click)="removeMateriaToList(scelta)" >
-                    <ion-icon name='remove-circle'></ion-icon>
+                    <ion-icon name='remove-circle' color="secondary"></ion-icon>
         </button>
       </ion-note>
     </ion-item>
 
     <p text-center>
         <button ion-button icon-start large clear (click)="addMateriaToList(m);">
-            <ion-icon name='add-circle'></ion-icon>
+            <ion-icon name='add-circle' color="primary"></ion-icon>
         </button>
     </p>
     <ion-list>
 
   <ion-item>
-    <ion-label floating>Città</ion-label>
-    <ion-input type="text" [(ngModel)]="citta"></ion-input>
-    <button ion-button item-end outline clear large><ion-icon name='md-locate'></ion-icon></button>
+    <ion-input type="text" [(ngModel)]="citta" placeholder="Città"></ion-input>
+    <button (click)="geolocate();" ion-button icon-only clear item-right><ion-icon name="locate" color="secondary"></ion-icon></button> 
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Luogo incontro</ion-label>
-    <ion-input type="text" [(ngModel)]="ripetizione.luogoIncontro"></ion-input>
+    <ion-input type="text" [(ngModel)]="ripetizione.luogoIncontro" placeholder="Luogo di Incontro"></ion-input>
   </ion-item>
     
      <ion-item>
-    <ion-label floating>Prezzo/Ora</ion-label>
-    <ion-input type="number" [(ngModel)]="ripetizione.costo"></ion-input>
-    <ion-icon item-end name='logo-euro' color="primary"></ion-icon>
+    <ion-input type="number" [(ngModel)]="ripetizione.costo" placeholder="Prezzo/Ora"></ion-input>
+    <ion-icon item-end name='logo-euro' color="secondary"></ion-icon>
     
   </ion-item>
     <ion-item>
-        <ion-label floating>Descrizione</ion-label>
-   <ion-textarea [(ngModel)]="ripetizione.descr" ></ion-textarea>
+   <ion-textarea [(ngModel)]="ripetizione.descr" placeholder="Descrizione" ></ion-textarea>
   </ion-item>
 
 </ion-list>     

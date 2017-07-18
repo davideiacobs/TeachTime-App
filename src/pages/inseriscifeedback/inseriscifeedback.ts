@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
 //constants
 import {MY_URL_IMG} from '../../constants';
 

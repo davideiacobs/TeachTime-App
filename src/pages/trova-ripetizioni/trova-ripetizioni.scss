@@ -3,4 +3,11 @@ page-trova-ripetizioni {
 .costo{
     font-size: 25px;
 }
+
+.value>.icon[name="star"]{
+        color:color($colors, star);
+    }
+    .value>.icon[name="star-outline"]{
+        color:color($colors, star-des); 
+    }
 }

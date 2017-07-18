@@ -44,21 +44,21 @@
     <ion-input [(ngModel)]="utente.email" type="email" placeholder="Email"></ion-input>
   </ion-item>
 
-  <ion-item >
+  <ion-item>
     <ion-input [(ngModel)]="utente.pwd" type="password" placeholder="Password"></ion-input>
   </ion-item>
 
 
 
 
-
-  <button id="Registrati" ion-button icon-end (click)="registrati()">
+  <button id="Registrati" ion-button icon-end (click)="registrati()" full >
     Registrati
     <ion-icon id="right" name="arrow-dropright"></ion-icon>
-  </button>
+  </button> 
+    <ion-item text-center no-lines>
  <button ion-button clear (click)="goLogin()">Sei già registrato? Login</button>
- 
-
+    </ion-item>
+  
 
 
 </ion-content>

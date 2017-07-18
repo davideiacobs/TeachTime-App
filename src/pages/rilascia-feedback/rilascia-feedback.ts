@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
 //models
 import {Prenotazione} from '../../models/prenotazione.model';
 //providers

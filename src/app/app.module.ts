@@ -8,6 +8,7 @@ import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { Geolocation } from '@ionic-native/geolocation';
 import { IonicStorageModule } from '@ionic/storage';
+import { EmailComposer } from '@ionic-native/email-composer';
 import { MyApp } from './app.component';
 import { DatePipe } from '@angular/common';
 
@@ -31,13 +32,17 @@ import { LoginPage } from '../pages/login/login';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
 import {RegistrazionePage} from '../pages/registrazione/registrazione';
 import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
+import {ContattaciPage} from '../pages/contattaci/contattaci';
 import { GeoProvider } from '../providers/geo/geo.provider';
+import {AboutPage} from '../pages/about/about';
 
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
+    AboutPage,
+    ContattaciPage,
     MioProfiloPage,
     RegistrazionePage,
     RilasciaFeedbackPage
@@ -54,15 +59,18 @@ import { GeoProvider } from '../providers/geo/geo.provider';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    AboutPage,
     LoginPage,
+    ContattaciPage,
     MioProfiloPage,
     RegistrazionePage,
-    RilasciaFeedbackPage
+    RilasciaFeedbackPage,
   ],
   providers: [
     StatusBar,
     DatePipe,
     Camera,
+    EmailComposer,
     FileTransfer,
     Geolocation,
     SplashScreen,

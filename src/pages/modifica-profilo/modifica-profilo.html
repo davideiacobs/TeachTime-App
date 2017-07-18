@@ -8,32 +8,22 @@
 </ion-header>
 
 <ion-content padding>
-    
- <!--<ion-item no-lines>
-    <ion-avatar>
-        <img [src]="base64Image" *ngIf="base64Image" style="width: 150px;height: 150px;">
-    </ion-avatar>
- </ion-item>
- <button ion-button color="primary" (click)="accessGallery()">Open Gallery</button>-->
 
-  <ion-label color="primary" fixed>Città</ion-label>
   <ion-item>
-    <ion-input [(ngModel)]="citta" type="text"></ion-input>
-    <ion-icon name="locate" item-right></ion-icon>
+    <ion-input [(ngModel)]="citta" type="text" placeholder="Città"></ion-input>
+    <button (click)="geolocate();" ion-button icon-only clear item-right><ion-icon name="locate" color="secondary"></ion-icon></button> 
   </ion-item>
   
 
-  <ion-label color="primary" fixed>Telefono</ion-label>
   <ion-item >
-    <ion-input [(ngModel)]="utente.telefono" type="number"></ion-input>
+    <ion-input [(ngModel)]="utente.telefono" type="number" placeholder="Telefono"></ion-input>
   </ion-item>
   
-  <ion-label color="primary" fixed>Titolo di Studi</ion-label>
   <ion-item >
-    <ion-input [(ngModel)]="utente.titoloDiStudi" type="text"></ion-input>
+    <ion-input [(ngModel)]="utente.titoloDiStudi" type="text" placeholder="Titolo di Studi"></ion-input>
   </ion-item>
 
-  <button id="Conferma" ion-button icon-end (click) = "UpdateProfile();">
+  <button id="Conferma" ion-button icon-end (click) = "UpdateProfile();" full>
     Conferma
     <ion-icon id="right" name="arrow-dropright"></ion-icon>
   </button>
