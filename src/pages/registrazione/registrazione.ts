@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
-import {UserSignupInterface} from '../../interfaces/user-signup.interface';
-import {AccountProvider} from '../../providers/account/account.provider';
 import { Events } from 'ionic-angular';
+//providers
+import {AccountProvider} from '../../providers/account/account.provider';
+import {GeoProvider} from '../../providers/geo/geo.provider';
+//constants
 import {IMG_DEF} from '../../constants';
+//interfaces
+import {UserSignupInterface} from '../../interfaces/user-signup.interface';
 
 @IonicPage()
 @Component({
@@ -21,7 +25,8 @@ export class RegistrazionePage {
               public sAccount: AccountProvider,
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,
-              public events: Events
+              public events: Events,
+              public geo: GeoProvider
               ) 
     {  
       this.utente = {
@@ -38,10 +43,7 @@ export class RegistrazionePage {
         this.citta = "";
   }
 
-  
-   
-  
-  
+
   registrati() {
         this.utente.città = this.citta;
         this._validate().then(() => {
@@ -63,7 +65,6 @@ export class RegistrazionePage {
                                 this.sAccount.login(this.utente).then(()=>{
                                     this.events.publish('user:register');
                                 });
-
                             });
                         });
                     })
@@ -82,7 +83,6 @@ export class RegistrazionePage {
     private _validate() {
         return new Promise((resolve, reject) => {
             let msg = "";
-            
             if (this.utente.nome.trim() === "") {
                 msg = "Inserisci il tuo nome";
             } else if (this.utente.cognome.trim() === "") {
@@ -98,14 +98,12 @@ export class RegistrazionePage {
             } else if (this.utente.telefono.length < 10){
                 msg = "Il numero di telefono inserito sembra non essere valido";
             }
-            
             if (msg !== "") {
                 this.alertCtrl.create({
                     title: "TeachTime",
                     message: msg,
                     buttons: ["OK"]
                 }).present();
-                
                 reject();
             } else {
                 resolve();
@@ -115,16 +113,27 @@ export class RegistrazionePage {
     
     
     goLogin(){
-        //this.navCtrl.setRoot('LoginPage');
         this.events.publish('toLogin');
     }
     
     itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(RegistrazionePage, {
-      item: item
-    });
-  }
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(RegistrazionePage, {
+          item: item
+        });
+    }
+    
+    
+    geolocate(){
+        const loading = this.loadingCtrl.create({content: "Loading.." });
+        loading.present();
+        this.geo.geolocate().then((city : any) => {
+             this.citta = city;
+             loading.dismiss(); 
+        });
+    }
+
+
   
   
   

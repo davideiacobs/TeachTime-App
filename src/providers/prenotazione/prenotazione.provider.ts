@@ -23,7 +23,7 @@ export class PrenotazioneProvider {
                 .then(() => {
                     resolve();
                 })
-                .catch((err: Response) => reject(`Errore status: ${err.status}`));
+                .catch();
         });
 
     }  

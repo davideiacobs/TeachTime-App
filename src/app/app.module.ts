@@ -6,8 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
-
+import { Geolocation } from '@ionic-native/geolocation';
 import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { DatePipe } from '@angular/common';
@@ -32,7 +31,7 @@ import { LoginPage } from '../pages/login/login';
 import {MioProfiloPage} from '../pages/mio-profilo/mio-profilo';
 import {RegistrazionePage} from '../pages/registrazione/registrazione';
 import {RilasciaFeedbackPage} from '../pages/rilascia-feedback/rilascia-feedback';
-import { ImagePicker } from '@ionic-native/image-picker';
+import { GeoProvider } from '../providers/geo/geo.provider';
 
 
 @NgModule({
@@ -64,9 +63,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     StatusBar,
     DatePipe,
     Camera,
-    File,
     FileTransfer,
-    ImagePicker,
+    Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaProvider,
@@ -75,7 +73,8 @@ import { ImagePicker } from '@ionic-native/image-picker';
     UtenteProvider,
     AccountProvider,
     UserPersistanceProvider,
-    PrenotazioneProvider
+    PrenotazioneProvider,
+    GeoProvider
   ]
 })
 export class AppModule {}
