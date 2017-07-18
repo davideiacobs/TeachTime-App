@@ -107,6 +107,10 @@ export class MioProfiloPage {
         this.navCtrl.push("RegistrazionePage");
     }
     
+     goAggiungiRipetizione(){
+        this.navCtrl.push("OffriRipetizionePage");
+    }
+    
     
     upload() : Promise<any> {
      return new Promise((resolve, reject) => {
